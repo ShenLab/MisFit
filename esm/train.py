@@ -14,31 +14,34 @@ import numpy as np
 from model import Net , Net_orig
 from test_model import get_dataset,test_model
 
+
 def create_parser():
     parser=argparse.ArgumentParser(description='Train or test a simple neural network on ESM embeddings')
     parser.add_argument('--train',default=False,type=bool,help='Specifies Train of test. Default False (Test)')
     parser.add_argument('--origin',default=True,type=bool,help='Specifies whether or not to append Reference Sequences. Default False')
     parser.add_argument('--epochs',default=100,type=int,help='Specifices number of training epochs. Default 100')
     return parser
+
+
 if __name__ == '__main__':
     args=create_parser().parse_args()
     orig=args.origin
-    print (args.train)
+
     if args.train:
+        print("Training...")
         dataset=get_dataset(train=True,orig=orig)
 
         train,test=train_test_split(dataset,test_size=.2)
 
         train_loader = DataLoader(train, batch_size=32)
         test_loader = DataLoader(test, batch_size=32)
-    #    for target,label in test_loader:
-    #      print (target.size())
+
         print ("Done with preprocessing")
         if orig:
             model=Net_orig()
         else:
             model=Net()
-    #    print (model)
+
         device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
@@ -56,7 +59,7 @@ if __name__ == '__main__':
                 data,targets=data.to(device),targets.to(device)
                 optimizer.zero_grad()
                 output = model(data)
-         #       print (data.ndim)
+
                 loss = criterion(output, targets)
                 loss.backward()
                 optimizer.step()
@@ -96,5 +99,6 @@ if __name__ == '__main__':
         axs[0].legend()
         axs[1].legend()
         plt.savefig('summary.png')
+        plt.clf()
     print ('Testing Model...')
     test_model(orig=orig,train=False)

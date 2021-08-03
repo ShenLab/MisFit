@@ -36,12 +36,12 @@ def get_dataset(train,orig):
 
             embedding=torch.cat((embedding,torch.load(os.path.join(embed_path,'orig','{}.pt'.format(header[0][1:]+'-'+header[1])))['mean_representations'][33]))
         datapoints.append((embedding,int(target)))
-    print (benign,pathnogenic)
+    print ("0's: {} ||| 1's {}".format(benign,pathnogenic))
     return datapoints
 
 
 def test_model(orig,train):
-    if  orig:
+    if orig:
         dataset=get_dataset(train=True,orig=orig)
     else:
         dataset=get_dataset(False,orig)
@@ -62,20 +62,22 @@ def test_model(orig,train):
     training_acc=[]
     total=0
     correct=0
+
+    #test the model
     with torch.no_grad():
         for (data,targets) in  test:
             data=data.cuda()
             targets=targets.cuda()
             test_outputs = model(data)
-           # print (test_outputs)
             confidence, predicted = torch.max(test_outputs.data, 1)
             _preds=torch.cat((_preds,test_outputs[:,-1:]))
             _labels=torch.cat((_labels,targets))
             total += targets.size(0)
             correct += (predicted == targets).sum().item()
-    
+
+    #plot ROC curve
     _preds=torch.reshape(_preds,(-1,))
-    print (_preds.cpu().numpy())
+
     print ('Testing Accuracy: {:.1f}'.format(correct/total*100))
     fpr, tpr, threshold = metrics.roc_curve(_labels.cpu().numpy(), _preds.cpu().numpy())
     roc_auc = metrics.auc(fpr, tpr)
@@ -91,4 +93,4 @@ def test_model(orig,train):
       plt.savefig('roc_orig.png')
     else:
       plt.savefig('roc.png')
-    
+    plt.clf()
