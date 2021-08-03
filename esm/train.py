@@ -17,11 +17,13 @@ from test_model import get_dataset,test_model
 def create_parser():
     parser=argparse.ArgumentParser(description='Train or test a simple neural network on ESM embeddings')
     parser.add_argument('--train',default=False,type=bool,help='Specifies Train of test. Default False (Test)')
-    parser.add_arguemtn('--origin',default=True,type=bool,help='Specifies whether or not to append Reference Sequences. Default False')
+    parser.add_argument('--origin',default=True,type=bool,help='Specifies whether or not to append Reference Sequences. Default False')
+    parser.add_argument('--epochs',default=100,type=int,help='Specifices number of training epochs. Default 100')
     return parser
 if __name__ == '__main__':
     args=create_parser().parse_args()
-    orig=args.train
+    orig=args.origin
+    print (args.train)
     if args.train:
         dataset=get_dataset(train=True,orig=orig)
 
@@ -42,7 +44,7 @@ if __name__ == '__main__':
         optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
         train_loss_progress=[]
         test_acc_progress=[]
-        epochs=100
+        epochs=args.epochs
         _targets=torch.tensor([]).to(device)
         _labels=torch.tensor([]).to(device)
         model.to(device)
@@ -94,5 +96,5 @@ if __name__ == '__main__':
         axs[0].legend()
         axs[1].legend()
         plt.savefig('summary.png')
-    elif not args.train:
-        test_model(orig=orig,train=False)
+    print ('Testing Model...')
+    test_model(orig=orig,train=False)

@@ -73,7 +73,7 @@ def test_model(orig,train):
             _labels=torch.cat((_labels,targets))
             total += targets.size(0)
             correct += (predicted == targets).sum().item()
-    print (_labels)
+    
     _preds=torch.reshape(_preds,(-1,))
     print (_preds.cpu().numpy())
     print ('Testing Accuracy: {:.1f}'.format(correct/total*100))
