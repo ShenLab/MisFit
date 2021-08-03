@@ -55,20 +55,21 @@ def data(path,write_path):
                         sequence.description=header
                         protein_sequence=str(sequence.seq)
                         if( protein_sequence[int(row[replacement_index])-1]!=row[ref_index]):
-                            raise Exception("Reference protein does not match")
-                         protein_sequence[int(row[replacement_index])-1]=row[replacement_aa_index] #replace aa with missense var.
+                             raise Exception("Reference protein does not match")
+                        protein_sequence[int(row[replacement_index])-1]=row[replacement_aa_index] #replace aa with missense var.
                   #       
-                         protein_sequence = ''.join(protein_sequence) 
+                        protein_sequence = ''.join(protein_sequence)
                         protein_sequence=crop(256,int(row[replacement_index])-1,protein_sequence)
                         sequence.seq=Seq.Seq(protein_sequence)
                         if line_count==1:
                             print ('Writing...')
+                        line_count+=1
                         with open(os.path.join(write_path,'{}.fasta'.format(header)),'x') as handle1:
                             try:
                                  SeqIO.write(sequence,handle1,'fasta')
                             except FileNotFoundError:
                                  print ("{} not found".format(sequence))
-                        line_count+=1
+
 
 if __name__=='__main__':
 
