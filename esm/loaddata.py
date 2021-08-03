@@ -3,6 +3,8 @@ from Bio import SeqIO
 import csv
 import os
 from Bio import Seq
+
+
 def crop(target_len,include,string):
     if (len(string)<=target_len):
         return string
