@@ -28,7 +28,7 @@ if __name__ == '__main__':
     orig=args.origin
 
     if args.train:
-        print("Training...")
+        print("Training with {} epochs...".format(args.epochs))
         dataset=get_dataset(train=True,orig=orig)
 
         train,test=train_test_split(dataset,test_size=.2)

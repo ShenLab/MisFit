@@ -56,9 +56,10 @@ def test_model(orig,train):
         model.load_state_dict(torch.load('/home/alant/ESM/weights/weights_orig.pt'))
     print ("model loaded")
     model.eval()
-    _preds=torch.tensor([]).cuda()
-    _labels=torch.tensor([]).cuda()
-    model.cuda()
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    _preds=torch.tensor([]).to(device)
+    _labels=torch.tensor([]).to(device)
+    model.to(device)
     training_acc=[]
     total=0
     correct=0
@@ -66,8 +67,8 @@ def test_model(orig,train):
     #test the model
     with torch.no_grad():
         for (data,targets) in  test:
-            data=data.cuda()
-            targets=targets.cuda()
+            data=data.to(device)
+            targets=targets.to(device)
             test_outputs = model(data)
             confidence, predicted = torch.max(test_outputs.data, 1)
             _preds=torch.cat((_preds,test_outputs[:,-1:]))
@@ -77,7 +78,6 @@ def test_model(orig,train):
 
     #plot ROC curve
     _preds=torch.reshape(_preds,(-1,))
-
     print ('Testing Accuracy: {:.1f}'.format(correct/total*100))
     fpr, tpr, threshold = metrics.roc_curve(_labels.cpu().numpy(), _preds.cpu().numpy())
     roc_auc = metrics.auc(fpr, tpr)
