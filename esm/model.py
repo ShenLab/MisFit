@@ -14,13 +14,10 @@ class Net(nn.Module):
                  nn.ReLU(),
                  nn.Linear(100, 2),
                  nn.Sigmoid()
-
         )
 
     def forward(self, x):
-
         output = (self.hidden1(x))
-
         return output
 
 class Net_orig(nn.Module):
@@ -35,13 +32,10 @@ class Net_orig(nn.Module):
                  nn.ReLU(),
                  nn.Linear(100, 2),
                  nn.Sigmoid()
-
         )
 
     def forward(self, x):
-
         output = (self.hidden1(x))
-
         return output
 
 
