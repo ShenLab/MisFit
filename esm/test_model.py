@@ -70,9 +70,9 @@ def plot_roc(_preds, _labels, orig):
 
 def test_model(orig,train):
     if orig:
-        dataset=LoadData(train=True,orig=orig)
+        dataset=LoadData(train=False,orig=orig)
     else:
-        dataset=LoadData(False,orig)
+        dataset=LoadData(False,orig=orig)
 
     test = DataLoader(dataset, batch_size=32,shuffle=False)
 

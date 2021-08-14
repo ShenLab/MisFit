@@ -2,12 +2,11 @@ import argparse
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
 from model import Net , Net_orig
 from test_model import LoadData,test_model
-
+from torch.utils.data import random_split as random_split
 
 def create_parser():
     parser=argparse.ArgumentParser(description='Train or test a simple neural network on ESM embeddings')
@@ -22,9 +21,10 @@ def trainer(args):
     if args.train:
         print("Training with {} epochs. Original Sequences Added: {}".format(args.epochs,orig))
         dataset=LoadData(train=True,orig=orig)
-
-        train,test=train_test_split(dataset,test_size=.2)
-
+        train_len=int(len(dataset)*.8)
+        test_len = len(dataset)-train_len
+        train,test=random_split(dataset,[train_len,test_len])
+       
         train_loader = DataLoader(train, batch_size=32)
         test_loader = DataLoader(test, batch_size=32)
 
@@ -33,7 +33,7 @@ def trainer(args):
             model=Net_orig()
         else:
             model=Net()
-
+        print ("model loaded")
         device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
