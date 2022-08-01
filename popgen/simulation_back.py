@@ -33,25 +33,28 @@ def main():
 	# parameters
 	mu = args.mu
 	L = int(1e5)
-	filename = "sim_q/simulation_" + str(mu) + ".csv"
+	filename = "sim_q/simulation_back_" + str(mu) + ".csv"
 
 	# simulation
-	for s in [5e-7, 1.6e-6, 5e-6, 1.6e-5, 5e-5, 1.6e-4, 5e-4, 1.6e-3, 5e-3, 1.6e-2, 5e-2, 1.6e-1, 5e-1, 1]:
+	for s in [5e-6, 1.6e-5, 5e-5, 1.6e-4, 5e-4, 1.6e-3, 5e-3, 1.6e-2, 5e-2, 1.6e-1, 5e-1, 1, 0.6, 0.7, 0.8, 0.9]:
 		print("mu =", mu, " s =", s)
 		AC = np.zeros(L)
 		AF = AC / (2 * N[0])
-		for t in range(1, len(N)):
+		for t in range(1, len(N) - 1):
 			exist_AC = np.random.binomial(2 * N[t], AF * (1 - s))
+			back_AC = np.random.binomial(exist_AC, mu)
 			new_AC = np.random.binomial(2 * N[t] - exist_AC, mu)
-			AC = exist_AC + new_AC
+			AC = exist_AC + new_AC - back_AC
 			AF = AC / (2 * N[t])
-			if (t%2000==0):
-				print(t, "generations processed.")
-		(AC_uni, Occ) = np.unique(np.array(AC), return_counts = True)
+			if (t%5000==0):
+				print(t, "generations processed.", flush = True)
+		AFadj = AF * (1 - s) * (1 - 2 * mu) + mu
+		#(AC_uni, Occ) = np.unique(np.array(AC), return_counts = True)
+		(AF_uni, Occ) = np.unique(np.array(AFadj), return_counts = True)
 		df = pd.DataFrame({
 			"mu": [mu] * len(Occ),
 			"s": [s] * len(Occ),
-			"AC_uni": AC_uni, 
+			"AF_uni": AF_uni, 
 			"Occ": Occ
 
 		})
