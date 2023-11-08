@@ -125,7 +125,7 @@ p2 = ggplot(likedt[(mu == 1e-7) & (Ns == Ns0)], aes(x = s, y = pmax(like, show_y
   ggtitle("mutation rate = 1e-7")
 
 arrange_nature(p1, p2, common.legend = T, legend = "bottom")
-save_nature("figure/like_200k.svg", hw_ratio = 2/3)
+save_nature("figure/like_200k.eps", hw_ratio = 2/3)
 
 likedt = data.table()
   for (mu0 in c(1e-8, 1e-7)) {
@@ -154,5 +154,5 @@ p4 = ggplot(likedt[(mu == 1e-7)], aes(x = af, y = like, color = factor(s))) +
   ggtitle("mutation rate = 1e-7")
 
 arrange_nature(p3, p4, common.legend = T, legend = "bottom")
-save_nature("figure/af_cdf.svg", hw_ratio = 2/3)
+save_nature("figure/af_cdf.eps", hw_ratio = 2/3)
 

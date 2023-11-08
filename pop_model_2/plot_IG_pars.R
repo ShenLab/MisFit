@@ -24,5 +24,6 @@ p2 = ggplot(dt, aes(x = s, y = ig_lambda, color = factor(mu))) +
 options(scipen = 0)
 
 arrange_nature(p1, p2, ncol = 2, common.legend = T, legend = "right")
-save_nature("figure/IG-pars-to-s.svg", hw_ratio = 1/2.5, width_ratio = 1)
+save_nature("figure/IG-pars-to-s.eps", hw_ratio = 1/2.5, width_ratio = 1)
+
 
