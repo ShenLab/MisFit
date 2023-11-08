@@ -1,0 +1,92 @@
+{
+	"GPU": [0, 1],
+
+	"data_folder": "~/data/variant/dataset/data_16/",
+	"geneset": "~/data/variant/list/geneset_uniprot_len.txt",
+	"ngene": 18708,
+	"segment_length": 1000,
+	"overlap_length": 200,
+	"feature": ["refseq"],
+	"ESM": "ESM-2",
+	"ESM_folder": {
+		"ESM-1b": "~/data/variant/ESM-1b/",
+		"ESM-2": "~/data/variant/ESM-2/"
+	}, 
+	"ESM_dimension": {
+		"ESM-1b": 1280,
+		"ESM-2": 1280
+	},
+	"use_syn": false,
+	"pooling_method": "avepool",
+	"MSA_count_folder": "~/data/variant/label/zoonomia_primate_one/",
+	"pop_folder": "~/data/variant/snv_info_2/pop_ukbb_gnomad/",
+	"mu_folder": "~/data/variant/snv_info_2/mu_roulette/",
+	"struct_folder": "~/data/variant/prot/AF2_table/",
+	"refseq_folder": "~/data/variant/pep/uniprot_seq/",
+	"overlap_mask_type": "weighted",
+	"log_basic_mu": "~/data/variant/codon_freq/log_AA_freq.npy",
+	"use_basic_mu": true,
+
+	"mu_scaler": 1.0,
+	"batch_size": 8,
+	"min_log_s": -9.21,
+	"max_AF": 0.5,
+	"weight_decay": 0.0,
+	"nsample": 5,
+	"msample": 5,
+	"rsample": 5,
+	
+	"gene_dense_unit": [20],
+	"degree_transform_unit": [5, 5],
+	"use_cov": false,
+	"aa_base_sampling": true,
+	"nogene": false,
+
+	"post_mean_layer": [20, 20],
+	"post_sd_layer": [20, 20],
+
+	"smax_mean_global": -4.85,
+	"smax_sd_global": 2.88,
+	"init_smax_mean": "~/data/model/model_mis/result/smax_mean_gene.npy",
+	"init_smax_sd": "~/data/model/model_mis/result/smax_sd_gene.npy",
+	"d_mean_marginal": 0.116,
+	"d_sd_marginal": 2.0,
+	"d_sd_max": 0.25,
+
+	"training_weight": {
+		"ac": 1.0,
+		"seq": 1.0,
+		"reg": 0.0000,
+		"marginal": 50.0
+	},
+
+	"trainable": {
+		"gene": false,
+		"degree": true
+	},
+
+	"AA_table": {
+		"A": 0,
+		"C": 1,
+		"D": 2,
+		"E": 3,
+		"F": 4,
+		"G": 5,
+		"H": 6,
+		"I": 7,
+		"K": 8,
+		"L": 9,
+		"M": 10,
+		"N": 11,
+		"P": 12,
+		"Q": 13,
+		"R": 14,
+		"S": 15,
+		"T": 16,
+		"V": 17,
+		"W": 18,
+		"Y": 19
+	},
+	"AA_list": "ACDEFGHIKLMNPQRSTVWY"
+
+}
