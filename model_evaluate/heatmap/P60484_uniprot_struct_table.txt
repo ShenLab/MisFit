@@ -1,0 +1,39 @@
+structure	start	end
+Helix	8	10
+Helix	50	60
+Helix	78	80
+Helix	98	100
+Helix	101	112
+Helix	129	141
+Helix	148	159
+Helix	169	184
+Helix	277	279
+Helix	322	324
+Helix	328	330
+Beta strand	23	29
+Beta strand	32	35
+Beta strand	39	41
+Beta strand	44	47
+Beta strand	61	63
+Beta strand	65	73
+Beta strand	81	83
+Beta strand	85	90
+Beta strand	118	123
+Beta strand	125	128
+Beta strand	161	163
+Beta strand	192	202
+Beta strand	206	209
+Beta strand	213	219
+Beta strand	222	226
+Beta strand	232	235
+Beta strand	238	259
+Beta strand	262	264
+Beta strand	268	276
+Beta strand	280	284
+Beta strand	310	312
+Beta strand	315	321
+Beta strand	335	337
+Beta strand	342	349
+Beta strand	395	403
+Turn	19	22
+Turn	113	115

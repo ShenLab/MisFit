@@ -73,7 +73,7 @@ p5 = p5 + theme(legend.position = "none")
 
 p = arrange_nature(p1,p2,p3,p4,p5,legend, ncol = 3, nrow = 2, labels = NULL)
 annotate_figure(p, left = text_grob("P (sample allele frequency in range)", rot = 90, size = 7 * custom_expand_ratio))
-save_nature(paste0("figure/pAF_", model, ".eps"), hw_ratio = 2/3, width_ratio = 1, width = "single")
+save_nature(paste0("figure/pAF_", model, ".pdf"), hw_ratio = 2/3, width_ratio = 1, width = "single")
 
 
 mu0 = 1e-8
@@ -124,7 +124,7 @@ p2 = ggplot(dt2) +
   scale_x_continuous(name = bquote(s), trans = "log10", labels = trans_format("log10", math_format(10^.x))) +
   scale_y_continuous(name = "population AF variance", trans = "log10", labels = trans_format("log10", math_format(10^.x)))
 arrange_nature(p1, p2, ncol = 2, common.legend = T, legend = "right")
-save_nature(paste0("figure/popvar_", mu0, ".eps"), hw_ratio = 1/2.5, width_ratio = 1)
+save_nature(paste0("figure/popvar_", mu0, ".pdf"), hw_ratio = 1/2.5, width_ratio = 1)
 
 
 mu0 = 1e-8
@@ -179,5 +179,5 @@ p4 = ggplot(dt2) +
   scale_x_continuous(name = bquote(s), trans = "log10", labels = trans_format("log10", math_format(10^.x))) +
   scale_y_continuous(name = "sample AF variance", trans = "log10", labels = trans_format("log10", math_format(10^.x)))
 arrange_nature(p3, p4, ncol = 2, common.legend = T, legend = "right")
-save_nature("figure/samplevar_1e-8.eps", hw_ratio = 1/2.5, width_ratio = 1)
+save_nature("figure/samplevar_1e-8.pdf", hw_ratio = 1/2.5, width_ratio = 1)
 

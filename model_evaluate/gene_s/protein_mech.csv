@@ -1,0 +1,1411 @@
+﻿Gene,Inheritance,Molecular_disease_mechanism,Protein_functional_class
+ABCA1,AR,AR,Transporter
+ABCG5,AR,AR,Transporter
+ABCG8,AR,AR,Transporter
+ACAD8,AR,AR,Oxidoreductase
+ACAD8,AR,AR,Transferase
+ACADM,AR,AR,Oxidoreductase
+ACADM,AR,AR,Transferase
+ACADS,AR,AR,Oxidoreductase
+ACADS,AR,AR,Transferase
+ACADSB,AR,AR,Oxidoreductase
+ACADSB,AR,AR,Transferase
+ACADVL,AR,AR,Oxidoreductase
+ACADVL,AR,AR,Transferase
+ACAT1,AR,AR,Transferase
+ACE,AR,AR,Hydrolase
+ACE,AR,AR,Protease
+ACP5,AR,AR,Hydrolase
+ACP5,AR,AR,Phosphatase
+ACVRL1,AD,HI,Kinase
+ACVRL1,AD,HI,Receptor
+ACVRL1,AD,HI,Transferase
+ACY1,AR,AR,Hydrolase
+ADAM22,AR,AR,Hydrolase
+ADAM22,AR,AR,Protease
+ADAMTS13,AR,AR,Enzyme Modulator
+ADAMTS13,AR,AR,Extracellular Matrix Protein
+ADAMTS13,AR,AR,Hydrolase
+ADAMTS13,AR,AR,Protease
+ADSL,AR,AR,Lyase
+AGA,AR,AR,Hydrolase
+AGA,AR,AR,Protease
+AGT,AR,AR,Enzyme Modulator
+AGXT,AR,AR,Transferase
+AHCY,AR,AR,Hydrolase
+AICDA,AR,AR,Hydrolase
+AICDA,AR,AR,Nucleic Acid Binding
+AK1,AR,AR,Kinase
+AK1,AR,AR,Transferase
+AK2,AR,AR,Kinase
+AK2,AR,AR,Transferase
+AKR1C2,AR,AR,Oxidoreductase
+AKR1D1,AR,AR,Oxidoreductase
+AKT3,AD,GOF,Calcium-Binding Protein
+AKT3,AD,GOF,Kinase
+AKT3,AD,GOF,Transfer/Carrier Protein
+AKT3,AD,GOF,Transferase
+ALAD,AR,AR,Hydrolase
+ALAD,AR,AR,Lyase
+ALAD,AR,AR,Protease
+ALDH1A3,AR,AR,Oxidoreductase
+ALDH3A2,AR,AR,Oxidoreductase
+ALDH4A1,AR,AR,Oxidoreductase
+ALDH5A1,AR,AR,Oxidoreductase
+ALDH7A1,AR,AR,Oxidoreductase
+ALDOB,AR,AR,Lyase
+AMT,AR,AR,Transferase
+ANK2,AD,HI,Cytoskeletal Protein
+ANK2,AD,HI,Signaling Molecule
+ANTXR2,AR,AR,Receptor
+AP4M1,AR,AR,Extracellular Matrix Protein
+AP4M1,AR,AR,Receptor
+APC,AD,HI,Signaling Molecule
+APRT,AR,AR,Transferase
+ARG1,AR,AR,Hydrolase
+ARHGDIA,AR,AR,Enzyme Modulator
+ARHGDIA,AR,AR,Signaling Molecule
+ARL6,AR,AR,Cytoskeletal Protein
+ARL6,AR,AR,Enzyme Modulator
+ARSB,AR,AR,Calcium-Binding Protein
+ARSB,AR,AR,Enzyme Modulator
+ARSB,AR,AR,Hydrolase
+ASL,AR,AR,Lyase
+ASPA,AR,AR,Hydrolase
+ASPH,AR,AR,Oxidoreductase
+ASS1,AR,AR,Ligase
+ATG5,AR,AR,Membrane Traffic Protein
+ATIC,AR,AR,Hydrolase
+ATIC,AR,AR,Transferase
+ATL1,AD,DN,Enzyme Modulator
+ATL3,AD,DN,Enzyme Modulator
+ATM,AR,AR,Kinase
+ATM,AR,AR,Nucleic Acid Binding
+ATM,AR,AR,Transferase
+ATP7B,AR,AR,Hydrolase
+ATP7B,AR,AR,Transporter
+AUH,AR,AR,Isomerase
+AUH,AR,AR,Ligase
+AUH,AR,AR,Lyase
+AUH,AR,AR,Oxidoreductase
+AUH,AR,AR,Transferase
+B3GAT3,AR,AR,Transferase
+B4GALT7,AR,AR,Transferase
+BANF1,AR,AR,Nucleic Acid Binding
+BBS9,AR,AR,Membrane Traffic Protein
+BCAT2,AR,AR,Transferase
+BCKDHA,AR,AR,Oxidoreductase
+BCKDHB,AR,AR,Lyase
+BCKDHB,AR,AR,Oxidoreductase
+BCKDHB,AR,AR,Transferase
+BCL10,AR,AR,Defense/Immunity protein
+BCL10,AR,AR,Enzyme Modulator
+BIN1,AR,AR,Cytoskeletal Protein
+BLM,AR,AR,Hydrolase
+BLM,AR,AR,Nucleic Acid Binding
+BMP1,AR,AR,Hydrolase
+BMP1,AR,AR,Protease
+BMPR1A,AD,HI,Kinase
+BMPR1A,AD,HI,Receptor
+BMPR1A,AD,HI,Transferase
+BMPR2,AD,DN,Kinase
+BMPR2,AD,DN,Receptor
+BMPR2,AD,DN,Transferase
+BOLA3,AR,AR,Nucleic Acid Binding
+BOLA3,AR,AR,Transcription Factor
+BPGM,AR,AR,Hydrolase
+BPGM,AR,AR,Isomerase
+BRAF,AD,GOF,Kinase
+BRAF,AD,GOF,Transferase
+BRCA1,AR,AR,Ligase
+BRCA1,AR,AR,Nucleic Acid Binding
+C1QB,AR,AR,Defense/Immunity protein
+C1QBP,AR,AR,Defense/Immunity protein
+C1QBP,AR,AR,Receptor
+C1QBP,AR,AR,Transcription Factor
+C1QC,AR,AR,Defense/Immunity protein
+C1R,AD,GOF,Hydrolase
+C1R,AD,GOF,Protease
+C1S,AD,GOF,Hydrolase
+C1S,AD,GOF,Protease
+C3,AR,AR,Defense/Immunity protein
+C3,AR,AR,Enzyme Modulator
+C3,AR,AR,Signaling Molecule
+CA12,AR,AR,Lyase
+CA2,AR,AR,Lyase
+CA8,AR,AR,Lyase
+CACNA1A,AD,GOF,Transcription Factor
+CAD,AR,AR,Hydrolase
+CAD,AR,AR,Ligase
+CAD,AR,AR,Protease
+CAD,AR,AR,Transferase
+CANT1,AR,AR,Hydrolase
+CAPN1,AR,AR,Calcium-Binding Protein
+CAPN1,AR,AR,Hydrolase
+CAPN1,AR,AR,Protease
+CASQ2,AR,AR,Transporter
+CBS,AR,AR,Hydrolase
+CBS,AR,AR,Isomerase
+CBS,AR,AR,Lyase
+CD247,AR,AR,Defense/Immunity protein
+CD247,AR,AR,Receptor
+CD27,AR,AR,Receptor
+CD36,AR,AR,Receptor
+CD40,AR,AR,Signaling Molecule
+CD55,AR,AR,Receptor
+CD59,AR,AR,Defense/Immunity protein
+CD59,AR,AR,Receptor
+CD59,AR,AR,Signaling Molecule
+CD79B,AR,AR,Defense/Immunity protein
+CD79B,AR,AR,Receptor
+CD8A,AR,AR,Defense/Immunity protein
+CD8A,AR,AR,Receptor
+CD8A,AR,AR,Signaling Molecule
+CDC42,AD,GOF,Enzyme Modulator
+CDH1,AD,HI,Cell Adhesion Molecule
+CDH3,AR,AR,Cell Adhesion Molecule
+CDK6,AR,AR,Kinase
+CDK6,AR,AR,Transferase
+CENPE,AR,AR,Cytoskeletal Protein
+CFB,AR,AR,Hydrolase
+CFB,AR,AR,Protease
+CFI,AR,AR,Defense/Immunity protein
+CFI,AR,AR,Hydrolase
+CFI,AR,AR,Protease
+CFTR,AR,AR,Transporter
+CHAT,AR,AR,Transferase
+CHD7,AD,HI,Nucleic Acid Binding
+CHKB,AR,AR,Kinase
+CHKB,AR,AR,Transferase
+CHN1,AD,GOF,Calcium-Binding Protein
+CLPP,AR,AR,Hydrolase
+CLPP,AR,AR,Protease
+CNNM4,AR,AR,Transporter
+COL1A1,AD,HI,Calcium-Binding Protein
+COL1A1,AD,HI,Extracellular Matrix Protein
+COL2A1,AD,DN,Extracellular Matrix Protein
+COL2A1,AD,DN,Signaling Molecule
+COLEC11,AR,AR,Defense/Immunity protein
+COQ8A,AR,AR,Chaperone
+COQ8A,AR,AR,Kinase
+CP,AR,AR,Oxidoreductase
+CPS1,AR,AR,Hydrolase
+CPS1,AR,AR,Ligase
+CPS1,AR,AR,Protease
+CPS1,AR,AR,Transferase
+CRADD,AR,AR,Signaling Molecule
+CRBN,AR,AR,Hydrolase
+CREBBP,AD,HI,Nucleic Acid Binding
+CREBBP,AD,HI,Transcription Factor
+CREBBP,AD,HI,Transferase
+CSF2RB,AR,AR,Receptor
+CSF3R,AR,AR,Defense/Immunity protein
+CSF3R,AR,AR,Signaling Molecule
+CSTB,AR,AR,Enzyme Modulator
+CTH,AR,AR,Lyase
+CTSC,AR,AR,Enzyme Modulator
+CTSC,AR,AR,Hydrolase
+CTSC,AR,AR,Protease
+CTSD,AR,AR,Hydrolase
+CTSD,AR,AR,Protease
+CTSF,AR,AR,Enzyme Modulator
+CTSF,AR,AR,Hydrolase
+CTSF,AR,AR,Protease
+CTSK,AR,AR,Enzyme Modulator
+CTSK,AR,AR,Hydrolase
+CTSK,AR,AR,Protease
+CUBN,AR,AR,Calcium-Binding Protein
+CUBN,AR,AR,Receptor
+CUBN,AR,AR,Transporter
+CYB5A,AR,AR,Oxidoreductase
+CYB5R3,AR,AR,Oxidoreductase
+CYBA,AR,AR,Oxidoreductase
+CYC1,AR,AR,Oxidoreductase
+CYC1,AR,AR,Transporter
+CYP11B2,AR,AR,Oxidoreductase
+CYP17A1,AR,AR,Lyase
+CYP17A1,AR,AR,Oxidoreductase
+CYP1B1,AR,AR,Oxidoreductase
+CYP2R1,AR,AR,Oxidoreductase
+DAG1,AR,AR,Receptor
+DARS2,AR,AR,Ligase
+DARS2,AR,AR,Nucleic Acid Binding
+DBH,AR,AR,Oxidoreductase
+DBT,AR,AR,Transferase
+DCPS,AR,AR,Hydrolase
+DDC,AR,AR,Lyase
+DGUOK,AR,AR,Kinase
+DGUOK,AR,AR,Transferase
+DHFR,AR,AR,Oxidoreductase
+DHH,AR,AR,Cell Junction Protein
+DHH,AR,AR,Hydrolase
+DHH,AR,AR,Protease
+DHH,AR,AR,Signaling Molecule
+DHODH,AR,AR,Oxidoreductase
+DICER1,AD,HI,Nucleic Acid Binding
+DLAT,AR,AR,Transferase
+DLD,AR,AR,Oxidoreductase
+DMGDH,AR,AR,Oxidoreductase
+DNAJB2,AR,AR,Chaperone
+DNAJC12,AR,AR,Chaperone
+DNM1,AD,DN,Cytoskeletal Protein
+DNM1,AD,DN,Enzyme Modulator
+DNM1,AD,DN,Hydrolase
+DNMT3A,AD,GOF,Nucleic Acid Binding
+DNMT3A,AD,GOF,Transferase
+DNMT3B,AR,AR,Nucleic Acid Binding
+DNMT3B,AR,AR,Transferase
+DPAGT1,AR,AR,Transferase
+DPYS,AR,AR,Hydrolase
+DPYS,AR,AR,Protease
+DYSF,AR,AR,Membrane Traffic Protein
+ECHS1,AR,AR,Isomerase
+ECHS1,AR,AR,Ligase
+ECHS1,AR,AR,Lyase
+ECHS1,AR,AR,Oxidoreductase
+ECHS1,AR,AR,Transferase
+EDC3,AR,AR,Nucleic Acid Binding
+EFEMP2,AR,AR,Calcium-Binding Protein
+EFEMP2,AR,AR,Cell Adhesion Molecule
+EFEMP2,AR,AR,Extracellular Matrix Protein
+EFEMP2,AR,AR,Signaling Molecule
+EFTUD2,AD,HI,Enzyme Modulator
+EFTUD2,AD,HI,Hydrolase
+EFTUD2,AD,HI,Nucleic Acid Binding
+EGLN1,AD,GOF,Oxidoreductase
+EHMT1,AD,HI,Enzyme Modulator
+EHMT1,AD,HI,Transferase
+EIF2AK3,AR,AR,Kinase
+EIF2AK3,AR,AR,Transferase
+EIF2B1,AR,AR,Nucleic Acid Binding
+EIF2B5,AR,AR,Transcription Factor
+EIF4A3,AR,AR,Hydrolase
+EIF4A3,AR,AR,Nucleic Acid Binding
+ELANE,AD,DN,Hydrolase
+ELANE,AD,DN,Protease
+EMG1,AR,AR,Nucleic Acid Binding
+EML1,AR,AR,Cytoskeletal Protein
+ENG,AD,HI,Extracellular Matrix Protein
+ENG,AD,HI,Signaling Molecule
+ENO3,AR,AR,Lyase
+EP300,AD,HI,Nucleic Acid Binding
+EP300,AD,HI,Transcription Factor
+EP300,AD,HI,Transferase
+EPCAM,AR,AR,Cell Adhesion Molecule
+EPCAM,AR,AR,Signaling Molecule
+ERBB3,AR,AR,Kinase
+ERBB3,AR,AR,Receptor
+ERBB3,AR,AR,Transferase
+ERCC1,AR,AR,Nucleic Acid Binding
+ERCC2,AR,AR,Nucleic Acid Binding
+ERCC3,AR,AR,Hydrolase
+ERCC3,AR,AR,Nucleic Acid Binding
+ERCC8,AR,AR,Nucleic Acid Binding
+ERCC8,AR,AR,Transcription Factor
+ESR1,AR,AR,Nucleic Acid Binding
+ESR1,AR,AR,Receptor
+ESR1,AR,AR,Transcription Factor
+ESRRB,AR,AR,Nucleic Acid Binding
+ESRRB,AR,AR,Receptor
+ESRRB,AR,AR,Transcription Factor
+ETFA,AR,AR,Oxidoreductase
+ETFA,AR,AR,Transferase
+ETFB,AR,AR,Oxidoreductase
+ETHE1,AR,AR,Hydrolase
+ETV6,AD,DN,Nucleic Acid Binding
+ETV6,AD,DN,Signaling Molecule
+ETV6,AD,DN,Transcription Factor
+EXOSC2,AR,AR,Hydrolase
+EXOSC2,AR,AR,Nucleic Acid Binding
+EXOSC3,AR,AR,Hydrolase
+EXOSC3,AR,AR,Nucleic Acid Binding
+F10,AR,AR,Hydrolase
+F10,AR,AR,Protease
+F13A1,AR,AR,Transferase
+F7,AR,AR,Hydrolase
+F7,AR,AR,Protease
+FADD,AR,AR,Defense/Immunity protein
+FADD,AR,AR,Receptor
+FADD,AR,AR,Signaling Molecule
+FAM126A,AR,AR,Signaling Molecule
+FAN1,AR,AR,Hydrolase
+FAN1,AR,AR,Nucleic Acid Binding
+FANCE,AR,AR,Nucleic Acid Binding
+FARS2,AR,AR,Ligase
+FAS,AD,DN,Receptor
+FBN1,AD,HI,Calcium-Binding Protein
+FBN1,AD,HI,Cell Adhesion Molecule
+FBN1,AD,HI,Extracellular Matrix Protein
+FBN1,AD,HI,Signaling Molecule
+FBP1,AR,AR,Hydrolase
+FBP1,AR,AR,Phosphatase
+FECH,AR,AR,Lyase
+FGB,AR,AR,Signaling Molecule
+FGF10,AD,HI,Signaling Molecule
+FGF12,AD,GOF,Signaling Molecule
+FGFR1,AD,GOF,Kinase
+FGFR1,AD,GOF,Nucleic Acid Binding
+FGFR1,AD,GOF,Receptor
+FGFR1,AD,GOF,Signaling Molecule
+FGFR1,AD,GOF,Transferase
+FGFR2,AD,GOF,Kinase
+FGFR2,AD,GOF,Receptor
+FGFR2,AD,GOF,Signaling Molecule
+FGFR2,AD,GOF,Transferase
+FGG,AR,AR,Signaling Molecule
+FLCN,AD,HI,Cell Junction Protein
+FOLR1,AR,AR,Receptor
+FOLR1,AR,AR,Transporter
+FOXC2,AD,GOF,Nucleic Acid Binding
+FOXC2,AD,GOF,Transcription Factor
+FOXP1,AD,DN,Nucleic Acid Binding
+FOXP1,AD,DN,Transcription Factor
+FSHB,AR,AR,Signaling Molecule
+FTO,AR,AR,Oxidoreductase
+FUS,AD,GOF,Nucleic Acid Binding
+FUS,AD,GOF,Transcription Factor
+FXN,AR,AR,Kinase
+FXN,AR,AR,Transferase
+FXN,AR,AR,Transporter
+FXYD2,AD,DN,Enzyme Modulator
+FXYD2,AD,DN,Transporter
+FZD4,AD,HI,Enzyme Modulator
+FZD4,AD,HI,Receptor
+FZD4,AD,HI,Signaling Molecule
+GAA,AR,AR,Hydrolase
+GALE,AR,AR,Isomerase
+GALK1,AR,AR,Kinase
+GALK1,AR,AR,Transferase
+GALNS,AR,AR,Hydrolase
+GALNT2,AR,AR,Transferase
+GALT,AR,AR,Transferase
+GAMT,AR,AR,Transferase
+GAN,AR,AR,Cytoskeletal Protein
+GATA4,AD,HI,Nucleic Acid Binding
+GATA4,AD,HI,Transcription Factor
+GBA,AR,AR,Hydrolase
+GBE1,AR,AR,Hydrolase
+GCDH,AR,AR,Oxidoreductase
+GCDH,AR,AR,Transferase
+GFER,AR,AR,Oxidoreductase
+GHRHR,AR,AR,Receptor
+GHRHR,AR,AR,Signaling Molecule
+GINS1,AR,AR,Nucleic Acid Binding
+GLB1,AR,AR,Hydrolase
+GLRX5,AR,AR,Transporter
+GLUD1,AD,GOF,Oxidoreductase
+GLUL,AR,AR,Ligase
+GM2A,AR,AR,Transfer/Carrier Protein
+GNMT,AR,AR,Transferase
+GNPTAB,AR,AR,Transferase
+GP1BB,AR,AR,Cell Adhesion Molecule
+GP1BB,AR,AR,Extracellular Matrix Protein
+GPD1,AR,AR,Oxidoreductase
+GPI,AR,AR,Isomerase
+GPT2,AR,AR,Transferase
+GRHPR,AR,AR,Oxidoreductase
+GRIN2A,AD,DN,Receptor
+GRIN2A,AD,DN,Transporter
+GRM7,AR,AR,Receptor
+GSR,AR,AR,Oxidoreductase
+GSS,AR,AR,Ligase
+GTF2E2,AR,AR,Transcription Factor
+GUSB,AR,AR,Hydrolase
+GYG1,AR,AR,Transferase
+HADH,AR,AR,Oxidoreductase
+HCN4,AD,DN,Transporter
+HERC2,AR,AR,Enzyme Modulator
+HERC2,AR,AR,Nucleic Acid Binding
+HEXA,AR,AR,Hydrolase
+HEXB,AR,AR,Hydrolase
+HFE,AR,AR,Defense/Immunity protein
+HGD,AR,AR,Oxidoreductase
+HIBCH,AR,AR,Isomerase
+HIBCH,AR,AR,Ligase
+HIBCH,AR,AR,Lyase
+HIBCH,AR,AR,Oxidoreductase
+HIBCH,AR,AR,Transferase
+HIKESHI,AR,AR,Chaperone
+HIKESHI,AR,AR,Transfer/Carrier Protein
+HINT1,AR,AR,Hydrolase
+HINT1,AR,AR,Phosphatase
+HMBS,AD,HI,Hydrolase
+HMGCL,AR,AR,Lyase
+HMGCL,AR,AR,Transferase
+HMGCS2,AR,AR,Lyase
+HMGCS2,AR,AR,Transferase
+HNF1B,AD,HI,Nucleic Acid Binding
+HNF1B,AD,HI,Transcription Factor
+HNMT,AR,AR,Transferase
+HOGA1,AR,AR,Lyase
+HOXA13,AD,GOF,Cell Junction Protein
+HOXA13,AD,GOF,Cytoskeletal Protein
+HOXA13,AD,GOF,Nucleic Acid Binding
+HOXA13,AD,GOF,Transcription Factor
+HOXB1,AR,AR,Nucleic Acid Binding
+HOXB1,AR,AR,Transcription Factor
+HPCA,AR,AR,Calcium-Binding Protein
+HPGD,AR,AR,Oxidoreductase
+HRAS,AD,GOF,Enzyme Modulator
+HSD11B1,AD,DN,Oxidoreductase
+HSD17B4,AR,AR,Oxidoreductase
+IDH3A,AR,AR,Oxidoreductase
+IDUA,AR,AR,Hydrolase
+IFIH1,AD,GOF,Hydrolase
+IFIH1,AD,GOF,Nucleic Acid Binding
+IFNGR2,AR,AR,Defense/Immunity protein
+IFNGR2,AR,AR,Receptor
+IGF1,AR,AR,Signaling Molecule
+IGHMBP2,AR,AR,Hydrolase
+IGHMBP2,AR,AR,Nucleic Acid Binding
+IL10RA,AR,AR,Defense/Immunity protein
+IL10RA,AR,AR,Receptor
+IL17RA,AR,AR,Receptor
+IL17RA,AR,AR,Signaling Molecule
+IL21,AR,AR,Signaling Molecule
+IL2RA,AR,AR,Receptor
+IL36RN,AR,AR,Signaling Molecule
+IL7R,AR,AR,Receptor
+INPP5E,AR,AR,Phosphatase
+INPPL1,AR,AR,Phosphatase
+ITGB2,AR,AR,Cell Adhesion Molecule
+ITGB2,AR,AR,Extracellular Matrix Protein
+ITGB2,AR,AR,Receptor
+ITGB6,AR,AR,Cell Adhesion Molecule
+ITGB6,AR,AR,Extracellular Matrix Protein
+ITGB6,AR,AR,Receptor
+ITPA,AR,AR,Hydrolase
+ITPA,AR,AR,Phosphatase
+IYD,AR,AR,Oxidoreductase
+JAG1,AD,HI,Extracellular Matrix Protein
+JAG1,AD,HI,Receptor
+JAG1,AD,HI,Signaling Molecule
+JAK1,AD,GOF,Kinase
+KANK2,AR,AR,Transcription Factor
+KCNE2,AD,GOF,Transporter
+KCNH2,AD,DN,Transporter
+KCNQ2,AD,DN,Transporter
+KIF7,AR,AR,Cytoskeletal Protein
+KITLG,AD,GOF,Enzyme Modulator
+KITLG,AD,GOF,Signaling Molecule
+KLHL40,AR,AR,Receptor
+KLHL40,AR,AR,Transcription Factor
+KLKB1,AR,AR,Hydrolase
+KLKB1,AR,AR,Protease
+KMT2D,AD,HI,Transferase
+KNL1,AR,AR,Enzyme Modulator
+KNL1,AR,AR,Signaling Molecule
+KYNU,AR,AR,Hydrolase
+LAMA2,AR,AR,Enzyme Modulator
+LAMA2,AR,AR,Extracellular Matrix Protein
+LAMA2,AR,AR,Receptor
+LARP7,AR,AR,Nucleic Acid Binding
+LCAT,AR,AR,Hydrolase
+LCAT,AR,AR,Transferase
+LCK,AR,AR,Kinase
+LCK,AR,AR,Transferase
+LEP,AR,AR,Signaling Molecule
+LEPR,AR,AR,Defense/Immunity protein
+LEPR,AR,AR,Signaling Molecule
+LHX4,AD,HI,Nucleic Acid Binding
+LIG4,AR,AR,Nucleic Acid Binding
+LONP1,AR,AR,Hydrolase
+LONP1,AR,AR,Protease
+LSS,AR,AR,Isomerase
+MAD2L2,AR,AR,Enzyme Modulator
+MAD2L2,AR,AR,Nucleic Acid Binding
+MALT1,AR,AR,Hydrolase
+MALT1,AR,AR,Protease
+MAN1B1,AR,AR,Chaperone
+MAP2K1,AD,GOF,Kinase
+MAP2K2,AD,GOF,Kinase
+MAP2K2,AD,GOF,Nucleic Acid Binding
+MAP2K2,AD,GOF,Transferase
+MCOLN1,AR,AR,Transporter
+MCPH1,AR,AR,Nucleic Acid Binding
+MDH2,AR,AR,Oxidoreductase
+MECR,AR,AR,Oxidoreductase
+MERTK,AR,AR,Kinase
+MERTK,AR,AR,Receptor
+MERTK,AR,AR,Transferase
+MICU1,AR,AR,Calcium-Binding Protein
+MLYCD,AR,AR,Lyase
+MMAA,AR,AR,Chaperone
+MMAA,AR,AR,Enzyme Modulator
+MMAA,AR,AR,Hydrolase
+MMAB,AR,AR,Oxidoreductase
+MMACHC,AR,AR,Oxidoreductase
+MMADHC,AR,AR,Signaling Molecule
+MMADHC,AR,AR,Transporter
+MMP2,AR,AR,Hydrolase
+MMP2,AR,AR,Protease
+MMP20,AR,AR,Hydrolase
+MMP20,AR,AR,Protease
+MOCS2,AR,AR,Transfer/Carrier Protein
+MPO,AR,AR,Oxidoreductase
+MRE11,AR,AR,Nucleic Acid Binding
+MRPL3,AR,AR,Nucleic Acid Binding
+MRPL44,AR,AR,Nucleic Acid Binding
+MTHFD1,AR,AR,Ligase
+MTMR2,AR,AR,Hydrolase
+MTMR2,AR,AR,Phosphatase
+MTOR,AD,GOF,Kinase
+MTOR,AD,GOF,Nucleic Acid Binding
+MTOR,AD,GOF,Transferase
+MTR,AR,AR,Transferase
+MYOC,AD,DN,Extracellular Matrix Protein
+MYOC,AD,DN,Receptor
+NAGA,AR,AR,Hydrolase
+NAGS,AR,AR,Transferase
+NCF1,AR,AR,Enzyme Modulator
+NCF2,AR,AR,Oxidoreductase
+NCF4,AR,AR,Enzyme Modulator
+NCF4,AR,AR,Oxidoreductase
+NDST1,AR,AR,Hydrolase
+NDST1,AR,AR,Transferase
+NDUFA10,AR,AR,Kinase
+NDUFA10,AR,AR,Transferase
+NDUFA13,AR,AR,Oxidoreductase
+NDUFA2,AR,AR,Oxidoreductase
+NDUFA9,AR,AR,Oxidoreductase
+NDUFB3,AR,AR,Oxidoreductase
+NDUFB8,AR,AR,Oxidoreductase
+NDUFB9,AR,AR,Oxidoreductase
+NDUFS1,AR,AR,Oxidoreductase
+NDUFS2,AR,AR,Oxidoreductase
+NDUFS3,AR,AR,Oxidoreductase
+NDUFS4,AR,AR,Oxidoreductase
+NDUFS6,AR,AR,Oxidoreductase
+NDUFS7,AR,AR,Oxidoreductase
+NDUFS8,AR,AR,Oxidoreductase
+NDUFV1,AR,AR,Oxidoreductase
+NDUFV2,AR,AR,Oxidoreductase
+NECTIN4,AR,AR,Cell Adhesion Molecule
+NECTIN4,AR,AR,Defense/Immunity protein
+NECTIN4,AR,AR,Receptor
+NF2,AD,HI,Cytoskeletal Protein
+NF2,AD,HI,Enzyme Modulator
+NFU1,AR,AR,Chaperone
+NFU1,AR,AR,Signaling Molecule
+NGF,AR,AR,Signaling Molecule
+NGLY1,AR,AR,Hydrolase
+NKX2-5,AD,DN,Cell Junction Protein
+NKX2-5,AD,DN,Nucleic Acid Binding
+NKX2-5,AD,DN,Transcription Factor
+NLRP3,AD,GOF,Defense/Immunity protein
+NLRP3,AD,GOF,Nucleic Acid Binding
+NLRP3,AD,GOF,Signaling Molecule
+NLRP3,AD,GOF,Transcription Factor
+NMNAT1,AR,AR,Transferase
+NNT,AR,AR,Oxidoreductase
+NOG,AD,HI,Signaling Molecule
+NPC1,AR,AR,Receptor
+NPC1,AR,AR,Transporter
+NPC2,AR,AR,Transporter
+NR3C1,AD,DN,Nucleic Acid Binding
+NR3C1,AD,DN,Receptor
+NR3C1,AD,DN,Transcription Factor
+NR3C2,AD,DN,Nucleic Acid Binding
+NR3C2,AD,DN,Receptor
+NR3C2,AD,DN,Transcription Factor
+NR5A1,AD,DN,Transcription Factor
+NRAS,AD,GOF,Enzyme Modulator
+NSD1,AD,HI,Nucleic Acid Binding
+NSD1,AD,HI,Transcription Factor
+NSD1,AD,HI,Transferase
+NSMCE3,AR,AR,Cell Adhesion Molecule
+NT5C3A,AR,AR,Hydrolase
+NT5E,AR,AR,Hydrolase
+NUP107,AR,AR,Transporter
+NUP62,AR,AR,Transporter
+OAT,AR,AR,Transferase
+ORC1,AR,AR,Nucleic Acid Binding
+ORC4,AR,AR,Nucleic Acid Binding
+OTULIN,AR,AR,Hydrolase
+OTULIN,AR,AR,Protease
+OXCT1,AR,AR,Transferase
+PAH,AR,AR,Enzyme Modulator
+PAH,AR,AR,Oxidoreductase
+PANK2,AR,AR,Kinase
+PAPSS2,AR,AR,Kinase
+PAPSS2,AR,AR,Transferase
+PARK7,AR,AR,Hydrolase
+PARK7,AR,AR,Nucleic Acid Binding
+PARK7,AR,AR,Protease
+PARK7,AR,AR,Transcription Factor
+PAX6,AD,HI,Nucleic Acid Binding
+PAX6,AD,HI,Transcription Factor
+PAX8,AD,DN,Nucleic Acid Binding
+PAX8,AD,DN,Transcription Factor
+PC,AR,AR,Ligase
+PCCA,AR,AR,Ligase
+PCK1,AR,AR,Lyase
+PCNA,AR,AR,Nucleic Acid Binding
+PCSK9,AD,GOF,Hydrolase
+PCSK9,AD,GOF,Protease
+PDE4D,AD,DN,Hydrolase
+PDGFRB,AD,GOF,Kinase
+PDGFRB,AD,GOF,Nucleic Acid Binding
+PDGFRB,AD,GOF,Receptor
+PDGFRB,AD,GOF,Transferase
+PDHB,AR,AR,Oxidoreductase
+PDYN,AD,DN,Signaling Molecule
+PEPD,AR,AR,Hydrolase
+PEPD,AR,AR,Nucleic Acid Binding
+PEPD,AR,AR,Protease
+PEPD,AR,AR,Transcription Factor
+PEX3,AR,AR,Chaperone
+PEX3,AR,AR,Membrane Traffic Protein
+PEX5,AR,AR,Membrane Traffic Protein
+PEX5,AR,AR,Receptor
+PFKM,AR,AR,Kinase
+PFKM,AR,AR,Transferase
+PGM1,AR,AR,Isomerase
+PHGDH,AR,AR,Oxidoreductase
+PHKG2,AR,AR,Kinase
+PHKG2,AR,AR,Transferase
+PHYH,AR,AR,Oxidoreductase
+PIK3CD,AD,GOF,Kinase
+PIK3CD,AD,GOF,Transferase
+PKD1,AD,HI,Kinase
+PKD1,AD,HI,Oxidoreductase
+PKD2,AD,HI,Enzyme Modulator
+PKD2,AD,HI,Hydrolase
+PKD2,AD,HI,Protease
+PKD2,AD,HI,Signaling Molecule
+PKD2,AD,HI,Transporter
+PLA2G4A,AR,AR,Hydrolase
+PLA2G7,AR,AR,Hydrolase
+PLAA,AR,AR,Enzyme Modulator
+PLCE1,AR,AR,Calcium-Binding Protein
+PLCE1,AR,AR,Enzyme Modulator
+PLCE1,AR,AR,Hydrolase
+PLCE1,AR,AR,Signaling Molecule
+PLCG2,AD,GOF,Calcium-Binding Protein
+PLCG2,AD,GOF,Enzyme Modulator
+PLCG2,AD,GOF,Hydrolase
+PLCG2,AD,GOF,Signaling Molecule
+PLG,AR,AR,Hydrolase
+PLG,AR,AR,Protease
+PMM2,AR,AR,Isomerase
+PMS2,AR,AR,Nucleic Acid Binding
+PNKP,AR,AR,Hydrolase
+PNKP,AR,AR,Kinase
+PNKP,AR,AR,Phosphatase
+PNKP,AR,AR,Transferase
+PNLIP,AR,AR,Hydrolase
+PNP,AR,AR,Transferase
+PNPO,AR,AR,Oxidoreductase
+PNPT1,AR,AR,Hydrolase
+PNPT1,AR,AR,Nucleic Acid Binding
+PNPT1,AR,AR,Transferase
+POMGNT1,AR,AR,Transferase
+PPIB,AR,AR,Isomerase
+PPP1R15B,AR,AR,Phosphatase
+PPP2R1A,AD,DN,Hydrolase
+PPP2R1A,AD,DN,Phosphatase
+PPP3CA,AD,GOF,Hydrolase
+PPP3CA,AD,GOF,Phosphatase
+PPT1,AR,AR,Hydrolase
+PRDM12,AR,AR,Nucleic Acid Binding
+PRDM12,AR,AR,Transcription Factor
+PRDM12,AR,AR,Transferase
+PRKDC,AR,AR,Kinase
+PRKDC,AR,AR,Nucleic Acid Binding
+PRKDC,AR,AR,Transferase
+PRKN,AR,AR,Ligase
+PRNP,AD,DN,Cytoskeletal Protein
+PRNP,AD,DN,Extracellular Matrix Protein
+PRPF4,AD,DN,Nucleic Acid Binding
+PRSS1,AD,GOF,Hydrolase
+PRSS1,AD,GOF,Protease
+PSAP,AR,AR,Enzyme Modulator
+PSAT1,AR,AR,Transferase
+PSEN1,AD,GOF,Calcium-Binding Protein
+PSEN1,AD,GOF,Hydrolase
+PSEN1,AD,GOF,Protease
+PSEN1,AD,GOF,Signaling Molecule
+PSMB8,AR,AR,Hydrolase
+PSMB8,AR,AR,Protease
+PSPH,AR,AR,Hydrolase
+PSPH,AR,AR,Phosphatase
+PTEN,AD,HI,Hydrolase
+PTEN,AD,HI,Phosphatase
+PTRH2,AR,AR,Hydrolase
+PTS,AR,AR,Lyase
+PUS1,AR,AR,Lyase
+PYCR1,AR,AR,Enzyme Modulator
+PYCR1,AR,AR,Oxidoreductase
+PYGL,AR,AR,Transferase
+PYGM,AR,AR,Transferase
+QDPR,AR,AR,Oxidoreductase
+RAB18,AR,AR,Enzyme Modulator
+RAB18,AR,AR,Hydrolase
+RAB18,AR,AR,Transporter
+RAD51,AD,DN,Nucleic Acid Binding
+RASA1,AD,HI,Enzyme Modulator
+RET,AD,HI,Kinase
+RET,AD,HI,Transferase
+RFXANK,AR,AR,Transcription Factor
+RIT1,AD,GOF,Enzyme Modulator
+RNASEH1,AR,AR,Hydrolase
+RNASEH1,AR,AR,Nucleic Acid Binding
+RNASEH2A,AR,AR,Hydrolase
+RNASEH2A,AR,AR,Nucleic Acid Binding
+RNASEH2B,AR,AR,Nucleic Acid Binding
+RNASEH2C,AR,AR,Nucleic Acid Binding
+RNASET2,AR,AR,Nucleic Acid Binding
+RNPC3,AR,AR,Nucleic Acid Binding
+RPGRIP1,AR,AR,Enzyme Modulator
+RPGRIP1L,AR,AR,Enzyme Modulator
+RPS19,AD,HI,Nucleic Acid Binding
+RPS26,AD,HI,Nucleic Acid Binding
+RTN4IP1,AR,AR,Extracellular Matrix Protein
+RYR2,AD,GOF,Receptor
+RYR2,AD,GOF,Transporter
+SACS,AR,AR,Chaperone
+SATB2,AD,HI,Nucleic Acid Binding
+SATB2,AD,HI,Transcription Factor
+SBDS,AR,AR,Nucleic Acid Binding
+SBDS,AR,AR,Transcription Factor
+SCARB2,AR,AR,Receptor
+SCN2A,AD,GOF,Transporter
+SCO1,AR,AR,Oxidoreductase
+SEC23A,AR,AR,Enzyme Modulator
+SEC24D,AR,AR,Membrane Traffic Protein
+SEPSECS,AR,AR,Nucleic Acid Binding
+SEPSECS,AR,AR,Transferase
+SERPINA1,AR,AR,Enzyme Modulator
+SFTPC,AD,GOF,Signaling Molecule
+SGPL1,AR,AR,Lyase
+SGSH,AR,AR,Hydrolase
+SHH,AD,DN,Cell Junction Protein
+SHH,AD,DN,Hydrolase
+SHH,AD,DN,Protease
+SI,AR,AR,Hydrolase
+SIGMAR1,AR,AR,Receptor
+SLCO2A1,AR,AR,Enzyme Modulator
+SLCO2A1,AR,AR,Transporter
+SLURP1,AR,AR,Signaling Molecule
+SMAD3,AD,HI,Transcription Factor
+SMAD4,AD,HI,Transcription Factor
+SMARCB1,AD,HI,Nucleic Acid Binding
+SMO,AR,AR,Enzyme Modulator
+SMO,AR,AR,Receptor
+SMO,AR,AR,Signaling Molecule
+SNCA,AD,GOF,Chaperone
+SNCA,AD,GOF,Membrane Traffic Protein
+SNX10,AR,AR,Membrane Traffic Protein
+SOS1,AD,GOF,Enzyme Modulator
+SOX2,AD,HI,Transcription Factor
+SPARC,AR,AR,Cell Adhesion Molecule
+SPARC,AR,AR,Extracellular Matrix Protein
+SPARC,AR,AR,Signaling Molecule
+SPAST,AD,GOF,Cytoskeletal Protein
+SPRED1,AD,HI,Receptor
+SRC,AD,GOF,Kinase
+ST14,AR,AR,Hydrolase
+ST14,AR,AR,Protease
+STAMBP,AR,AR,Hydrolase
+STAMBP,AR,AR,Protease
+STAMBP,AR,AR,Signaling Molecule
+STAR,AR,AR,Transporter
+STK11,AD,HI,Kinase
+STK11,AD,HI,Transferase
+STN1,AR,AR,Nucleic Acid Binding
+SULT2B1,AR,AR,Transferase
+SUMF1,AR,AR,Oxidoreductase
+SUOX,AR,AR,Oxidoreductase
+SYT1,AD,DN,Membrane Traffic Protein
+TAC3,AR,AR,Signaling Molecule
+TAF13,AR,AR,Nucleic Acid Binding
+TAF13,AR,AR,Transcription Factor
+TAF2,AR,AR,Hydrolase
+TAF2,AR,AR,Protease
+TAF2,AR,AR,Transcription Factor
+TALDO1,AR,AR,Transferase
+TAT,AR,AR,Transferase
+TBK1,AD,DN,Kinase
+TBK1,AD,DN,Transferase
+TBL1XR1,AD,HI,Nucleic Acid Binding
+TBL1XR1,AD,HI,Transcription Factor
+TBX5,AD,HI,Nucleic Acid Binding
+TBX5,AD,HI,Transcription Factor
+TDO2,AR,AR,Oxidoreductase
+TDP1,AR,AR,Hydrolase
+TEK,AD,GOF,Kinase
+TEK,AD,GOF,Receptor
+TEK,AD,GOF,Transferase
+TF,AR,AR,Hydrolase
+TF,AR,AR,Protease
+TF,AR,AR,Receptor
+TF,AR,AR,Transfer/Carrier Protein
+TFAM,AR,AR,Transcription Factor
+TGM1,AR,AR,Transferase
+TH,AR,AR,Oxidoreductase
+THG1L,AR,AR,Transferase
+TKT,AR,AR,Lyase
+TKT,AR,AR,Oxidoreductase
+TKT,AR,AR,Transferase
+TNFRSF11B,AR,AR,Receptor
+TNFRSF4,AR,AR,Defense/Immunity protein
+TNFRSF4,AR,AR,Receptor
+TNFSF11,AR,AR,Signaling Molecule
+TONSL,AR,AR,Nucleic Acid Binding
+TPI1,AR,AR,Isomerase
+TPK1,AR,AR,Kinase
+TPK1,AR,AR,Transferase
+TPP1,AR,AR,Hydrolase
+TPP1,AR,AR,Protease
+TPRKB,AR,AR,Enzyme Modulator
+TRAF3IP1,AR,AR,Cytoskeletal Protein
+TREM2,AR,AR,Receptor
+TRIM37,AR,AR,Ligase
+TRIM37,AR,AR,Transferase
+TRIO,AD,GOF,Signaling Molecule
+TRMT10A,AR,AR,Nucleic Acid Binding
+TRMT10A,AR,AR,Transferase
+TRNT1,AR,AR,Transferase
+TRPA1,AD,GOF,Transporter
+TRPV4,AD,GOF,Transporter
+TSEN15,AR,AR,Nucleic Acid Binding
+TTPA,AR,AR,Transfer/Carrier Protein
+TULP1,AR,AR,Cytoskeletal Protein
+TYMP,AR,AR,Transferase
+TYROBP,AR,AR,Defense/Immunity protein
+TYROBP,AR,AR,Enzyme Modulator
+TYROBP,AR,AR,Receptor
+TYRP1,AR,AR,Oxidoreductase
+UBA5,AR,AR,Ligase
+UBA5,AR,AR,Transfer/Carrier Protein
+UBE2T,AR,AR,Ligase
+UBR1,AR,AR,Ligase
+UCHL1,AR,AR,Hydrolase
+UCHL1,AR,AR,Protease
+UGDH,AR,AR,Enzyme Modulator
+UGDH,AR,AR,Oxidoreductase
+UMOD,AD,DN,Defense/Immunity protein
+UMOD,AD,DN,Receptor
+UMPS,AR,AR,Lyase
+UMPS,AR,AR,Transferase
+UNG,AR,AR,Hydrolase
+UNG,AR,AR,Nucleic Acid Binding
+UQCRB,AR,AR,Oxidoreductase
+UQCRC2,AR,AR,Hydrolase
+UQCRC2,AR,AR,Protease
+UQCRQ,AR,AR,Transporter
+UROS,AR,AR,Hydrolase
+USB1,AR,AR,Hydrolase
+USH1C,AR,AR,Cytoskeletal Protein
+USH1G,AR,AR,Cell Adhesion Molecule
+USH1G,AR,AR,Signaling Molecule
+VAPB,AD,DN,Membrane Traffic Protein
+VDR,AR,AR,Nucleic Acid Binding
+VDR,AR,AR,Receptor
+VDR,AR,AR,Transcription Factor
+VPS33A,AR,AR,Membrane Traffic Protein
+VPS33A,AR,AR,Transporter
+VRK1,AR,AR,Kinase
+VRK1,AR,AR,Transferase
+WARS2,AR,AR,Ligase
+WNK4,AD,DN,Kinase
+WNK4,AD,DN,Transferase
+WRN,AR,AR,Nucleic Acid Binding
+WWOX,AR,AR,Oxidoreductase
+XDH,AR,AR,Oxidoreductase
+XPA,AR,AR,Nucleic Acid Binding
+XPNPEP3,AR,AR,Hydrolase
+XPNPEP3,AR,AR,Protease
+XPR1,AD,DN,Receptor
+XRCC4,AR,AR,Nucleic Acid Binding
+YARS2,AR,AR,Ligase
+YARS2,AR,AR,Nucleic Acid Binding
+ZAP70,AR,AR,Kinase
+ZAP70,AR,AR,Transferase
+ZMPSTE24,AR,AR,Hydrolase
+ZMPSTE24,AR,AR,Protease
+ZMYND11,AD,HI,Nucleic Acid Binding
+ZMYND11,AD,HI,Transcription Factor
+ZNHIT3,AR,AR,Signaling Molecule
+CYLD,AD,Unknown,Translational Protein
+DARS2,AR,AR,Translational Protein
+EFTUD2,AD,HI,Translational Protein
+EIF2B1,AR,AR,Translational Protein
+EIF2B5,AR,AR,Translational Protein
+FARS2,AR,AR,Translational Protein
+MRPL3,AR,AR,Translational Protein
+RPS10,AD,Unknown,Translational Protein
+RPS19,AD,HI,Translational Protein
+RPS23,AD,Unknown,Translational Protein
+RPS26,AD,HI,Translational Protein
+RPS29,AD,Unknown,Translational Protein
+RPSA,AD,Unknown,Translational Protein
+WARS2,AR,AR,Translational Protein
+YARS2,AR,AR,Translational Protein
+COL12A1,AD,Unknown,Extracellular Matrix Protein
+POLD1,AD,Unknown,Nucleic Acid Binding
+CPSF1,AD,Unknown,Nucleic Acid Binding
+DLST,AD,Unknown,Transferase
+TUFM,AR,AR,Translational Protein
+GNAO1,AD,GOF,Hydrolase
+GNAO1,AD,GOF,Signaling Molecule
+KIF5A,AD,DN,Cytoskeletal Protein
+TUBB,AD,Unknown,Cytoskeletal Protein
+TUBGCP4,AR,AR,Cytoskeletal Protein
+FGF8,AD,Unknown,Signaling Molecule
+CUL3,AD,Unknown,Ligase
+KDM1A,AD,Unknown,Oxidoreductase
+DOCK8,AR,AR,Enzyme Modulator
+TBX3,AD,HI,Transcription Factor
+TBX3,AD,HI,Nucleic Acid Binding
+COL5A2,AD,Unknown,Extracellular Matrix Protein
+GRIK2,AR,AR,Receptor
+IL6R,AR,AR,Receptor
+CACNA1C,AD,GOF,Transporter
+CNOT1,AD,Unknown,Transferase
+TCF12,AD,HI,Transcription Factor
+GRIA2,AD,Unknown,Receptor
+POLR1C,AR,AR,Transferase
+IL11RA,AR,AR,Receptor
+DIS3L2,AR,AR,Nucleic Acid Binding
+DIS3L2,AR,AR,Hydrolase
+DIS3L2,AR,AR,Transferase
+EFL1,AR,AR,Translational Protein
+STT3A,AR,AR,Transferase
+CIC,AD,Unknown,Transcription Factor
+CIC,AD,Unknown,Nucleic Acid Binding
+SAG,AR,AR,Ligase
+RASGRP1,AR,AR,Enzyme Modulator
+NEUROD2,AD,Unknown,Transcription Factor
+KIF3B,AD,Unknown,Cytoskeletal Protein
+AVP,AD,Unknown,Signaling Molecule
+TUBB1,AD,Unknown,Cytoskeletal Protein
+SOX4,AD,Unknown,Transcription Factor
+SOX4,AD,Unknown,Nucleic Acid Binding
+STXBP1,AD,HI,Membrane Traffic Protein
+FOXC1,AD,HI,Transcription Factor
+FOXC1,AD,HI,Nucleic Acid Binding
+ADAM10,AD,Unknown,Hydrolase
+RAG1,AR,AR,Hydrolase
+RAG1,AR,AR,Nucleic Acid Binding
+BMP4,AD,Unknown,Signaling Molecule
+TRIP13,AR,AR,Nucleic Acid Binding
+NIPBL,AD,HI,Nucleic Acid Binding
+CACNA1G,AD,GOF,Transporter
+PLOD3,AR,AR,Enzyme Modulator
+MMUT,AR,AR,Isomerase
+GFPT1,AR,AR,Transferase
+TBXT,AR,AR,Transcription Factor
+TBXT,AR,AR,Nucleic Acid Binding
+CRAT,AR,AR,Transferase
+SMAD9,AD,GOF,Transcription Factor
+SMAD9,AD,GOF,Nucleic Acid Binding
+ABCD4,AR,AR,Transporter
+ABCD4,AR,AR,Hydrolase
+GANAB,AD,Unknown,Hydrolase
+CSNK2B,AD,Unknown,Enzyme Modulator
+SETD1A,AD,HI,Nucleic Acid Binding
+NADSYN1,AR,AR,Ligase
+USP7,AD,Unknown,Hydrolase
+SET,AD,Unknown,Nucleic Acid Binding
+DPF2,AD,Unknown,Nucleic Acid Binding
+KRAS,AD,GOF,Hydrolase
+KRAS,AD,GOF,Signaling Molecule
+KCNJ6,AD,Unknown,Transporter
+TNNT3,AD,GOF,Cytoskeletal Protein
+GRID2,AR,AR,Receptor
+SMPD1,AR,AR,Hydrolase
+KCNJ5,AD,DN,Transporter
+CAMK2B,AD,Unknown,Kinase
+MAG,AR,AR,Cell Adhesion Molecule
+SRD5A2,AR,AR,Oxidoreductase
+KCNH1,AD,GOF,Transporter
+GALNT3,AR,AR,Transferase
+MEF2C,AD,HI,Transcription Factor
+MEF2C,AD,HI,Nucleic Acid Binding
+LINGO1,AR,AR,Receptor
+ATP6V1B2,AD,Unknown,Transporter
+ATP6V1B2,AD,Unknown,Ligase
+LIPT1,AR,AR,Enzyme Modulator
+SOX11,AD,HI,Transcription Factor
+SOX11,AD,HI,Nucleic Acid Binding
+TBX19,AR,AR,Transcription Factor
+TBX19,AR,AR,Nucleic Acid Binding
+GFI1,AD,DN,Transcription Factor
+GFI1,AD,DN,Nucleic Acid Binding
+EIF2B4,AR,AR,Nucleic Acid Binding
+HNF4A,AD,Unknown,Transcription Factor
+HNF4A,AD,Unknown,Receptor
+HNF4A,AD,Unknown,Nucleic Acid Binding
+PTPN11,AD,Unknown,Phosphatase
+SYT2,AD,DN,Membrane Traffic Protein
+ROR1,AR,AR,Receptor
+TRIM2,AR,AR,Ligase
+PAK1,AD,GOF,Kinase
+CORO1A,AR,AR,Cytoskeletal Protein
+ERF,AD,Unknown,Transcription Factor
+ERF,AD,Unknown,Nucleic Acid Binding
+TRPV3,AD,GOF,Transporter
+LHX3,AR,AR,Transcription Factor
+LHX3,AR,AR,Nucleic Acid Binding
+MCM2,AD,Unknown,Nucleic Acid Binding
+XYLT1,AR,AR,Transferase
+RPL18,AD,Unknown,Nucleic Acid Binding
+KCNB1,AD,DN,Transporter
+RPL5,AD,Unknown,Nucleic Acid Binding
+MRPS14,AR,AR,Nucleic Acid Binding
+ADGRG1,AR,AR,Receptor
+MYT1L,AD,HI,Transcription Factor
+MYT1L,AD,HI,Nucleic Acid Binding
+PEX13,AR,AR,Transporter
+HSF4,AD,Unknown,Transcription Factor
+HSF4,AD,Unknown,Nucleic Acid Binding
+RAC3,AD,Unknown,Hydrolase
+RAC3,AD,Unknown,Signaling Molecule
+FLT4,AD,Unknown,Receptor
+CLDN19,AR,AR,Cell Junction Protein
+ETFDH,AR,AR,Oxidoreductase
+DEPDC5,AD,Unknown,Enzyme Modulator
+KCNN4,AD,Unknown,Transporter
+TNNT2,AD,DN,Cytoskeletal Protein
+OTX2,AD,DN,Transcription Factor
+OTX2,AD,DN,Nucleic Acid Binding
+KL,AR,AR,Hydrolase
+CTSA,AR,AR,Hydrolase
+C12orf65,AR,AR,Translational Protein
+PGAM2,AR,AR,Isomerase
+NTRK1,AR,AR,Receptor
+GUCY1A1,AR,AR,Lyase
+TOP3A,AR,AR,Nucleic Acid Binding
+TUBB2B,AD,Unknown,Cytoskeletal Protein
+P4HTM,AR,AR,Enzyme Modulator
+MTHFR,AR,AR,Oxidoreductase
+ATP5F1A,AR,AR,Transporter
+ATP5F1A,AR,AR,Ligase
+DST,AR,AR,Cytoskeletal Protein
+EIF2B2,AR,AR,Nucleic Acid Binding
+ERCC5,AR,AR,Nucleic Acid Binding
+FGF14,AD,Unknown,Signaling Molecule
+AGRN,AR,AR,Extracellular Matrix Protein
+MIP,AD,DN,Transporter
+LAMB1,AR,AR,Extracellular Matrix Protein
+PLA2G6,AR,AR,Hydrolase
+MDH1,AR,AR,Oxidoreductase
+BCL11A,AD,HI,Transcription Factor
+BCL11A,AD,HI,Nucleic Acid Binding
+SLC12A5,AR,AR,Transporter
+HARS2,AR,AR,Ligase
+HARS2,AR,AR,Translational Protein
+TUBA4A,AD,DN,Cytoskeletal Protein
+CFL2,AR,AR,Cytoskeletal Protein
+IRF2BP2,AD,Unknown,Transcription Factor
+IRF2BP2,AD,Unknown,Nucleic Acid Binding
+RECQL4,AR,AR,Nucleic Acid Binding
+RECQL4,AR,AR,Hydrolase
+SMARCD1,AD,Unknown,Nucleic Acid Binding
+LHB,AR,AR,Signaling Molecule
+CDT1,AR,AR,Nucleic Acid Binding
+ALOXE3,AR,AR,Oxidoreductase
+TUBB2A,AD,Unknown,Cytoskeletal Protein
+MED23,AR,AR,Transcription Factor
+MED23,AR,AR,Nucleic Acid Binding
+RAC3,AD,Unknown,Nucleic Acid Binding
+MGAT2,AR,AR,Transferase
+ABCB11,AR,AR,Transporter
+ABCB11,AR,AR,Hydrolase
+PCBD1,AR,AR,Lyase
+TRPM4,AD,GOF,Transporter
+PSMB9,AR,AR,Hydrolase
+SRP54,AD,Unknown,Nucleic Acid Binding
+FDXR,AR,AR,Oxidoreductase
+CACNA1H,AD,Unknown,Transporter
+CDK19,AD,DN,Kinase
+EZH2,AD,Unknown,Nucleic Acid Binding
+FDX2,AR,AR,Oxidoreductase
+AURKC,AR,AR,Kinase
+DPYD,AR,AR,Oxidoreductase
+SEC61A1,AD,Unknown,Transporter
+OSGEP,AR,AR,Nucleic Acid Binding
+PTPN23,AR,AR,Membrane Traffic Protein
+MRPS7,AR,AR,Nucleic Acid Binding
+SCN10A,AD,GOF,Transporter
+CYP24A1,AR,AR,Oxidoreductase
+RPS24,AD,HI,Nucleic Acid Binding
+GABRB2,AD,Unknown,Transporter
+TUBB4B,AD,Unknown,Cytoskeletal Protein
+KCNK3,AD,Unknown,Transporter
+NKX2-1,AD,Unknown,Transcription Factor
+NKX2-1,AD,Unknown,Nucleic Acid Binding
+NTNG2,AR,AR,Extracellular Matrix Protein
+TRIM71,AD,Unknown,Ligase
+MLPH,AR,AR,Cytoskeletal Protein
+MLPH,AR,AR,Cell Adhesion Molecule
+EEF1A2,AD,Unknown,Translational Protein
+MRPS23,AR,AR,Nucleic Acid Binding
+SLC9A1,AR,AR,Transporter
+CRPPA,AR,AR,Transferase
+MRPS22,AR,AR,Nucleic Acid Binding
+PDXK,AR,AR,Kinase
+PI4KA,AR,AR,Kinase
+STAG1,AD,Unknown,Nucleic Acid Binding
+NTRK2,AD,Unknown,Receptor
+MUTYH,AR,AR,Hydrolase
+MUTYH,AR,AR,Nucleic Acid Binding
+GRIN2B,AD,GOF,Receptor
+PGM3,AR,AR,Isomerase
+PDX1,AR,AR,Transferase
+TASP1,AR,AR,Hydrolase
+GABRB1,AD,Unknown,Transporter
+ATP1A1,AD,Unknown,Transporter
+SMARCE1,AD,Unknown,Nucleic Acid Binding
+GNB5,AR,AR,Hydrolase
+GNB5,AR,AR,Signaling Molecule
+TPM2,AD,GOF,Cytoskeletal Protein
+MYO5B,AR,AR,Cytoskeletal Protein
+GOT2,AR,AR,Transferase
+MCM5,AR,AR,Nucleic Acid Binding
+KCNK4,AD,GOF,Transporter
+ERCC4,AR,AR,Hydrolase
+ERCC4,AR,AR,Nucleic Acid Binding
+MSX2,AD,Unknown,Transcription Factor
+MSX2,AD,Unknown,Nucleic Acid Binding
+CDK8,AD,Unknown,Kinase
+TSFM,AR,AR,Translational Protein
+TRPC3,AD,GOF,Transporter
+KCNJ2,AD,Unknown,Transporter
+FMO3,AR,AR,Oxidoreductase
+GABRA2,AD,Unknown,Transporter
+DNAJC6,AR,AR,Membrane Traffic Protein
+PITX1,AD,Unknown,Transcription Factor
+PITX1,AD,Unknown,Nucleic Acid Binding
+FKBP14,AR,AR,Chaperone
+GLE1,AR,AR,Translational Protein
+TRPV6,AR,AR,Transporter
+SMARCA4,AD,Unknown,Nucleic Acid Binding
+SMARCA4,AD,Unknown,Hydrolase
+MOGS,AR,AR,Hydrolase
+GNA11,AD,GOF,Hydrolase
+GNA11,AD,GOF,Signaling Molecule
+CTNND1,AD,Unknown,Cytoskeletal Protein
+ATP1A2,AD,GOF,Transporter
+DNMT1,AD,Unknown,Transferase
+DNMT1,AD,Unknown,Nucleic Acid Binding
+GRIA4,AD,Unknown,Receptor
+DCLRE1C,AR,AR,Nucleic Acid Binding
+SLC4A4,AR,AR,Transporter
+TCF4,AD,HI,Transcription Factor
+ACTG2,AD,Unknown,Cytoskeletal Protein
+DUOX2,AR,AR,Oxidoreductase
+RASGRP2,AR,AR,Enzyme Modulator
+EIF2AK4,AR,AR,Kinase
+SCN3A,AD,GOF,Transporter
+POLR3B,AR,AR,Transferase
+SERPINH1,AR,AR,Enzyme Modulator
+TGIF1,AD,HI,Transcription Factor
+TGIF1,AD,HI,Nucleic Acid Binding
+COASY,AR,AR,Kinase
+ATP1A3,AD,GOF,Transporter
+ARPC1B,AR,AR,Cytoskeletal Protein
+AARS2,AR,AR,Ligase
+AARS2,AR,AR,Translational Protein
+GATA6,AD,GOF,Transcription Factor
+GATA6,AD,GOF,Nucleic Acid Binding
+HADHB,AR,AR,Transferase
+PLD1,AR,AR,Hydrolase
+SLC35A1,AR,AR,Transporter
+ADA2,AR,AR,Hydrolase
+ATP2A2,AD,GOF,Transporter
+MET,AR,AR,Receptor
+DDOST,AR,AR,Transferase
+PCYT2,AR,AR,Transferase
+RPL21,AD,Unknown,Nucleic Acid Binding
+BCL11B,AD,DN,Transcription Factor
+BCL11B,AD,DN,Nucleic Acid Binding
+PPP2CA,AD,DN,Phosphatase
+AP2M1,AD,Unknown,Membrane Traffic Protein
+COX6B1,AR,AR,Oxidoreductase
+GABRA5,AD,DN,Transporter
+TRMT10C,AR,AR,Transferase
+IVD,AR,AR,Oxidoreductase
+CHRNA2,AD,Unknown,Transporter
+CYP21A2,AR,AR,Oxidoreductase
+AGTR1,AR,AR,Receptor
+CALM3,AD,DN,Calcium-Binding Protein
+CCNK,AD,Unknown,Enzyme Modulator
+PSEN2,AD,GOF,Protease
+COX4I1,AR,AR,Oxidoreductase
+SCN1A,AD,GOF,Transporter
+PDE6C,AR,AR,Hydrolase
+FARSB,AR,AR,Ligase
+FARSB,AR,AR,Translational Protein
+TNNI2,AD,GOF,Cytoskeletal Protein
+MUSK,AR,AR,Receptor
+TSC2,AD,HI,Enzyme Modulator
+SLC17A8,AD,Unknown,Transporter
+GABRA1,AD,DN,Transporter
+THRA,AD,Unknown,Transcription Factor
+THRA,AD,Unknown,Receptor
+THRA,AD,Unknown,Nucleic Acid Binding
+KREMEN1,AR,AR,Receptor
+MRPS2,AR,AR,Nucleic Acid Binding
+POLR3A,AR,AR,Transferase
+PCYT1A,AR,AR,Transferase
+RPL35,AD,Unknown,Nucleic Acid Binding
+AP1B1,AR,AR,Membrane Traffic Protein
+ALX3,AR,AR,Transcription Factor
+ALX3,AR,AR,Nucleic Acid Binding
+SIN3A,AD,HI,Nucleic Acid Binding
+GLI3,AD,HI,Transcription Factor
+GLI3,AD,HI,Nucleic Acid Binding
+MTTP,AR,AR,Transporter
+KLF1,AD,DN,Transcription Factor
+KLF1,AD,DN,Nucleic Acid Binding
+GABRG2,AD,Unknown,Transporter
+ANGPTL3,AR,AR,Signaling Molecule
+ESCO2,AR,AR,Transferase
+MSX1,AD,HI,Transcription Factor
+MSX1,AD,HI,Nucleic Acid Binding
+RPL15,AD,Unknown,Nucleic Acid Binding
+GLDC,AR,AR,Oxidoreductase
+ORC6,AR,AR,Nucleic Acid Binding
+AP2S1,AD,Unknown,Membrane Traffic Protein
+MTRR,AR,AR,Oxidoreductase
+PPCS,AR,AR,Membrane Traffic Protein
+STX1B,AD,Unknown,Membrane Traffic Protein
+STX1B,AD,Unknown,Receptor
+EIF3F,AR,AR,Nucleic Acid Binding
+ASNS,AR,AR,Ligase
+HARS2,AR,AR,Hydrolase
+RFWD3,AR,AR,Ligase
+IDH3B,AR,AR,Oxidoreductase
+NFE2L2,AD,GOF,Transcription Factor
+NFE2L2,AD,GOF,Nucleic Acid Binding
+ZBTB24,AR,AR,Transcription Factor
+ZBTB24,AR,AR,Nucleic Acid Binding
+RELN,AR,AR,Extracellular Matrix Protein
+KIF21A,AD,Unknown,Cytoskeletal Protein
+BEST1,AD,Unknown,Transporter
+GNRHR,AR,AR,Receptor
+GABBR2,AD,DN,Receptor
+MTHFS,AR,AR,Ligase
+SLC12A1,AR,AR,Transporter
+WEE2,AR,AR,Kinase
+TIMM22,AR,AR,Transporter
+SUZ12,AD,Unknown,Nucleic Acid Binding
+CDH2,AD,Unknown,Cell Adhesion Molecule
+GNB4,AD,Unknown,Hydrolase
+GNB4,AD,Unknown,Signaling Molecule
+MRAS,AD,GOF,Hydrolase
+MRAS,AD,GOF,Signaling Molecule
+ACTC1,AD,Unknown,Cytoskeletal Protein
+TUBB4A,AD,Unknown,Cytoskeletal Protein
+MAF,AD,Unknown,Transcription Factor
+MAF,AD,Unknown,Nucleic Acid Binding
+PBX1,AD,HI,Transcription Factor
+PBX1,AD,HI,Nucleic Acid Binding
+WNT3,AR,AR,Signaling Molecule
+NFKB1,AD,Unknown,Transcription Factor
+NFKB1,AD,Unknown,Nucleic Acid Binding
+MSRB3,AR,AR,Oxidoreductase
+GNAI2,AD,Unknown,Hydrolase
+GNAI2,AD,Unknown,Signaling Molecule
+MACF1,AD,Unknown,Cytoskeletal Protein
+RORA,AD,Unknown,Transcription Factor
+RORA,AD,Unknown,Receptor
+RORA,AD,Unknown,Nucleic Acid Binding
+GALM,AR,AR,Isomerase
+MRPS28,AR,AR,Nucleic Acid Binding
+ARF1,AD,Unknown,Hydrolase
+ARF1,AD,Unknown,Signaling Molecule
+GALC,AR,AR,Hydrolase
+D2HGDH,AR,AR,Oxidoreductase
+STAT2,AR,AR,Transcription Factor
+STAT2,AR,AR,Nucleic Acid Binding
+RPL13,AD,Unknown,Nucleic Acid Binding
+RAC1,AD,Unknown,Hydrolase
+RAC1,AD,Unknown,Signaling Molecule
+NAXE,AR,AR,Isomerase
+LIPA,AR,AR,Hydrolase
+SUCLG1,AR,AR,Ligase
+TMX2,AR,AR,Oxidoreductase
+FN1,AD,Unknown,Signaling Molecule
+TUBB6,AD,Unknown,Cytoskeletal Protein
+ATP5F1D,AR,AR,Transporter
+ATP5F1D,AR,AR,Ligase
+POLR2A,AD,Unknown,Transferase
+GJA3,AD,Unknown,Cell Junction Protein
+IKZF1,AD,Unknown,Transcription Factor
+IKZF1,AD,Unknown,Nucleic Acid Binding
+MIP,AD,DN,Cytoskeletal Protein
+PRKAG2,AD,Unknown,Enzyme Modulator
+GAD1,AR,AR,Lyase
+CLTC,AD,Unknown,Membrane Traffic Protein
+GATA3,AD,HI,Transcription Factor
+GATA3,AD,HI,Nucleic Acid Binding
+KCNQ4,AD,DN,Transporter
+CACNA1S,AD,Unknown,Transporter
+PRMT7,AR,AR,Enzyme Modulator
+ARSA,AR,AR,Hydrolase
+KCNT2,AD,Unknown,Transporter
+GJA8,AD,Unknown,Cell Junction Protein
+GNB3,AR,AR,Hydrolase
+GNB3,AR,AR,Signaling Molecule
+ABAT,AR,AR,Transferase
+CAPN5,AD,GOF,Hydrolase
+PUM1,AD,Unknown,Nucleic Acid Binding
+SUCLA2,AR,AR,Ligase
+ABCC1,AD,Unknown,Transporter
+ABCC1,AD,Unknown,Hydrolase
+ACO2,AR,AR,Lyase
+IMPDH1,AD,Unknown,Oxidoreductase
+IL6ST,AR,AR,Receptor
+SLC40A1,AD,Unknown,Transporter
+ATP6V1B1,AR,AR,Transporter
+ATP6V1B1,AR,AR,Ligase
+SLC1A1,AR,AR,Transporter
+UBE3A,AD,HI,Ligase
+TAF6,AR,AR,Transcription Factor
+TAF6,AR,AR,Nucleic Acid Binding
+MYL1,AR,AR,Cytoskeletal Protein
+RUNX2,AD,Unknown,Transcription Factor
+RUNX2,AD,Unknown,Nucleic Acid Binding
+RUNX2,AD,Unknown,Defense/Immunity protein
+SYNGAP1,AD,HI,Enzyme Modulator
+KIF5C,AD,Unknown,Cytoskeletal Protein
+GRIN2D,AD,GOF,Receptor
+KCNA2,AD,Unknown,Transporter
+VKORC1,AD,Unknown,Oxidoreductase
+ATP2A1,AR,AR,Transporter
+TRPC6,AD,Unknown,Transporter
+ALPK1,AD,Unknown,Kinase
+EIF2B3,AR,AR,Nucleic Acid Binding
+ATP8A2,AR,AR,Transporter
+POR,AR,AR,Oxidoreductase
+LIMS2,AR,AR,Cell Junction Protein
+KCNA1,AD,DN,Transporter
+RPS17,AD,HI,Nucleic Acid Binding
+RRAS2,AD,Unknown,Hydrolase
+RRAS2,AD,Unknown,Signaling Molecule
+KCNQ5,AD,GOF,Transporter
+TUBGCP6,AR,AR,Cytoskeletal Protein
+ATP5F1E,AR,AR,Transporter
+ATP5F1E,AR,AR,Ligase
+TLK2,AD,Unknown,Kinase
+MIP,AD,DN,Protease
+GATA2,AD,Unknown,Transcription Factor
+GATA2,AD,Unknown,Nucleic Acid Binding
+PPP2R5D,AD,DN,Phosphatase
+KMT2A,AD,HI,Nucleic Acid Binding
+CUX2,AD,Unknown,Transcription Factor
+CUX2,AD,Unknown,Nucleic Acid Binding
+PYCR2,AR,AR,Oxidoreductase
+TJP2,AR,AR,Cell Junction Protein
+ASAH1,AR,AR,Hydrolase
+EPHB2,AR,AR,Receptor
+SARS2,AR,AR,Ligase
+SARS2,AR,AR,Translational Protein
+DGAT1,AR,AR,Transferase
+NPRL2,AD,Unknown,Enzyme Modulator
+PPP1CB,AD,Unknown,Phosphatase
+ACTA2,AD,Unknown,Cytoskeletal Protein
+STRADA,AR,AR,Kinase
