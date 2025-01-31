@@ -32,6 +32,7 @@ class PostSelection(tfk.Model):
 		d_post_distr = tfd.Normal(d_post_mean, d_post_sd)
 		d_post_sample = d_post_distr.sample() # (B, L, A)
 		kl_d = d_post_distr.kl_divergence(tfd.Normal(d_mean, d_sd))
+		#smax_post_sample = tfd.Normal(s_mean, s_sd).sample() # B, 1, 1
 		s_post_sample = tf.math.sigmoid(d_post_sample) * (s_mean - self.smin) + self.smin # B, L, A
 		return s_post_sample, kl_d
 		
@@ -44,18 +45,24 @@ class PostModel(tfk.Model):
 		self.popmodel = PopACModel()
 		self.ac_loss_tracker = tfk.metrics.Mean(name="ac_loss")
 		self.total_loss_tracker = tfk.metrics.Mean(name="total_loss")
-	def call(self, inputs):
-		d_mean, _, d_sd, s_mean, _ = self.probmodel.call(inputs)
+	def call(self, inputs, nogene = False):
+		d_mean, _, d_sd, s_mean = self.probmodel.call(inputs)
+		if nogene:
+			s_mean = tf.broadcast_to(setting['smax_mean_global'], tf.shape(s_mean))
+			#s_sd = tf.broadcast_to(setting['smax_sd_global'], tf.shape(s_sd))
 		s_post_mean = self.post_selection.get_s(inputs, d_mean, d_sd, s_mean)
 		return tf.math.sigmoid(d_mean), s_post_mean
-	def get_loss(self, inputs):
-		d_mean, _, d_sd, s_mean, _ = self.probmodel.call(inputs)
+	def get_loss(self, inputs, nogene = False):
+		d_mean, _, d_sd, s_mean = self.probmodel.call(inputs)
+		if nogene:
+			s_mean = tf.broadcast_to(setting['smax_mean_global'], tf.shape(s_mean))
+			#s_sd = tf.broadcast_to(setting['smax_sd_global'], tf.shape(s_sd))
 		s_post_sample, kl_d = self.post_selection.sample(inputs, d_mean, d_sd, s_mean)
 		logps = self.popmodel((tf.math.log(inputs['mu']), s_post_sample, inputs['AN'], inputs['AC'])) * inputs['AA_mask']
 		return logps, kl_d
 	def train_step(self, inputs):
 		with tf.GradientTape() as tape:
-			logps, kl = self.get_loss(inputs)
+			logps, kl = self.get_loss(inputs, nogene = setting['nogene'])
 			ac_loss = -tf.reduce_sum(logps * inputs['overlap_weight']) / setting['batch_size']
 			total_loss = ac_loss + tf.reduce_sum(kl * inputs['overlap_weight']) / setting['batch_size']
 		grads = tape.gradient(total_loss, self.trainable_weights)
@@ -72,7 +79,7 @@ class PostModel(tfk.Model):
 		return [self.ac_loss_tracker, self.total_loss_tracker]
 
 def create_post(saved_weights_path = None):
-	data = gen_data(2, batch_size = 1)
+	data = gen_data(2, batch_size = 2)
 	with mirrored_strategy.scope():
 		model = ProbModel()
 		inputs = next(iter(data))
@@ -94,7 +101,7 @@ def train_post(model, train_list, lr = 1e-3, patience = 3, epochs = 20, checkpoi
 	data = gen_data(train_list, shuffle = True, batch_size = setting['batch_size'] * len(setting['GPU']))
 	tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 	lr_schedule = LRSchedule(lr)
-#	stop_callback = tf.keras.callbacks.EarlyStopping(monitor='total_loss', patience = patience, restore_best_weights = True)
+	stop_callback = tf.keras.callbacks.EarlyStopping(monitor='total_loss', patience = patience, restore_best_weights = True)
 	dist_data = mirrored_strategy.experimental_distribute_dataset(data)
 	with mirrored_strategy.scope():
 		model.compile(optimizer=tf.optimizers.Adam(
@@ -103,13 +110,11 @@ def train_post(model, train_list, lr = 1e-3, patience = 3, epochs = 20, checkpoi
 			clipvalue = clipvalue
 		))
 	print(f"training posterior model")
-	model.fit(dist_data, 
-	    #callbacks = [stop_callback], 
-	    epochs = epochs, steps_per_epoch = int(data_size / setting['batch_size'] / len(setting['GPU'])))
+	model.fit(dist_data, callbacks = [stop_callback], epochs = epochs, steps_per_epoch = int(data_size / setting['batch_size'] / len(setting['GPU'])))
 	model.post_selection.save_weights(f"{log_dir}/ckpt_post/checkpoint_{checkpoint}")
 	print(f"saved checkpoint: {checkpoint}")
 
-def output_post(test_list, output_d = False):
+def output_post(test_list, output_d = False, nogene = setting['nogene']):
 	model = create_post()
 	output_d_dir = f"{log_dir}/d_temp/"
 	output_s_dir = f"{log_dir}/s_temp/"
@@ -119,7 +124,7 @@ def output_post(test_list, output_d = False):
 		os.makedirs(output_s_dir)
 	data = gen_data(test_list, shuffle = False, batch_size = setting['batch_size'] * len(setting['GPU']), repeat = 1)
 	for inputs in iter(data):
-		d, s = model.call(inputs)
+		d, s = model.call(inputs, nogene = nogene)
 		for index in range(tf.shape(inputs['id'])[0].numpy()):
 			uniprot_id = inputs['uniprot'][index].numpy().decode('utf-8')
 			frac = inputs['frac'][index].numpy()
@@ -132,4 +137,11 @@ def output_post(test_list, output_d = False):
 				damage = d[index,:,:] # (L, A)
 				weighted_d = damage * weights
 				np.save(f"{output_d_dir}/{uniprot_id}_{frac}.npy", weighted_d[:l].numpy())
+
+def main():
+	model = create_post()
+	train_post(model, [2], lr = 5e-4, epochs = 20, patience = 5)
+
+if __name__=="__main__":
+	main()
 

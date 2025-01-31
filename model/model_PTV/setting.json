@@ -7,7 +7,7 @@
 	"popnames": ["UKBB", "gnomAD_NFE_exome", "gnomAD_NFE_genome"],
 	"mu_type": ["roulette_mu", "gnomAD_mu_old"],
 
-	"min_log_s": -13.8,
+	"min_log_s": -9.21,
 	"mu_scaler": 1.0,
 	"max_AF": 0.5,
 	"batch_size": 1000,

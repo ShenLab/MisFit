@@ -37,24 +37,19 @@ class Gene(tfkl.Layer):
 		self.smin = smin
 		# posterior
 		self.smax_mean_gene = tf.Variable(tf.ones((ngene, 1)) * init_smax_mean, name = "smax_mean_gene", dtype = tf.float32, constraint = lambda z: tfp.math.clip_by_value_preserve_gradient(z, 1e-3 + smin, 0.))
-		self.smax_sd_gene = tf.Variable(tf.ones((ngene, 1)) * init_smax_sd, name = "smax_sd_gene", dtype = tf.float32, constraint = lambda z: tfp.math.clip_by_value_preserve_gradient(z, 1e-5, 5.))
 	def call(self, belong_mt):
 		smax_mean = belong_mt @ self.smax_mean_gene
-		smax_sd = belong_mt @ self.smax_sd_gene
-		return smax_mean, smax_sd
+		return smax_mean
 	def sample(self, belong_mt, smax_mean_global, smax_sd_global, msample, from_prior = False):
 		# belong_mt: (b, ngene)
-		smax_gene_distr = tfd.Normal(self.smax_mean_gene, self.smax_sd_gene)
 		smax_global_distr = tfd.Normal(smax_mean_global, smax_sd_global)
 		if from_prior == False:
-			smax_gene_sample = smax_gene_distr.sample((msample)) # (msample, ngene, 1)
+			smax_gene_sample = tf.expand_dims(self.smax_mean_gene, 0) # (1, ngene, 1)
 		else:
 			smax_gene_sample = smax_global_distr.sample((msample, self.ngene, 1))
-		smax_mean = belong_mt @ self.smax_mean_gene
-		smax_sd = belong_mt @ self.smax_sd_gene
 		smax_sample = belong_mt @ smax_gene_sample # (msample, b, 1)
-		kl_smax = belong_mt @ smax_gene_distr.kl_divergence(smax_global_distr) # (b, 1)
-		return smax_sample, kl_smax # (msample, b, 1);  (b, 1)
+		psmax = belong_mt @ smax_global_distr.log_prob(smax_gene_sample)
+		return smax_sample, psmax
 
 class Selection(tfkl.Layer):
 	def __init__(self, smin = -13.8, **kwargs):
@@ -65,7 +60,7 @@ class Selection(tfkl.Layer):
 		return smax_sample # (msample, b, 1, 1)
 
 class ProbModel(tfk.Model):
-	def __init__(self, smin = setting['min_log_s'], ngene = setting['ngene'], init_smax_mean = -5.4, init_smax_sd = 2.5, **kwargs):
+	def __init__(self, smin = setting['min_log_s'], ngene = setting['ngene'], init_smax_mean = -5.06, init_smax_sd = 2.82, **kwargs):
 		super().__init__(**kwargs)
 		self.ngene = ngene
 		self.priorgene = PriorGene(smin = smin, init_smax_mean = init_smax_mean, init_smax_sd = init_smax_sd)
@@ -78,24 +73,25 @@ class ProbModel(tfk.Model):
 	def sample(self, inputs, msample = 1, from_prior = False):
 		belong_mt = tf.one_hot(inputs['id'], depth = self.ngene) # (b, ngene)
 		smax_mean_global, smax_sd_global = self.priorgene.call()
-		smax_sample, kl_smax = self.gene.sample(belong_mt, smax_mean_global, smax_sd_global, msample, from_prior)
+		smax_sample, psmax = self.gene.sample(belong_mt, smax_mean_global, smax_sd_global, msample, from_prior)
 		s_sample = self.selection(smax_sample)
 		# inputs: (b, v, 1)
 		logps = self.popmodel((tf.math.log(inputs['mu']), s_sample, inputs['AN'], inputs['AC'])) # (msample, b, v, 1)
 		logps = inputs['mask'] * logps
 		logps = tf.math.reduce_sum(logps, axis = -2) # (msample, b, 1)
 		logps = tfp.math.reduce_logmeanexp(logps, axis = 0) # (b, 1)
-		return logps, kl_smax # (b, 1)
+		psmax = tf.math.reduce_sum(psmax, axis = 0)
+		return logps, psmax # (b, 1)
 	def train_step(self, data):
 		inputs = data
 		with tf.GradientTape() as tape:
 			if self.train_prior_only:
-				logps, kl_smax = self.sample(inputs, msample = setting['msample'], from_prior = self.train_prior_only)
-				kl_smax = 0.
+				logps, psmax = self.sample(inputs, msample = setting['msample'], from_prior = self.train_prior_only)
+				psmax = 0.
 			else:
-				logps, kl_smax = self.sample(inputs, msample = 1, from_prior = self.train_prior_only)
+				logps, psmax = self.sample(inputs, msample = 1, from_prior = self.train_prior_only)
 			ac_loss = -tf.reduce_sum(logps) / setting['batch_size']
-			total_loss = -tf.reduce_sum(logps - kl_smax * inputs['weight'][:, tf.newaxis]) / setting['batch_size']
+			total_loss = -tf.reduce_sum(logps + psmax * inputs['weight'][:, tf.newaxis]) / setting['batch_size']
 		grads = tape.gradient(total_loss, self.trainable_weights)
 		self.optimizer.apply_gradients(zip(grads, self.trainable_weights))
 		self.ac_loss_tracker.update_state(ac_loss)
@@ -150,19 +146,17 @@ def train(model, data, epochs = 50, init_lr = 1e-2, lr_decay_epoch = 20, lr_warm
 
 def main():
 	model, data = create()
-	train(model, data, epochs = 15, init_lr = 0.03, lr_warmup_epoch = 0, lr_decay_epoch = 15, prior = True, post = False)
+	#train(model, data, epochs = 15, init_lr = 0.03, lr_warmup_epoch = 0, lr_decay_epoch = 15, prior = True, post = False)
 	log_dir = "result"
-	log = open(f"{log_dir}/par.log", "w")
-	print(f"smax_mean_global: {model.priorgene.smax_mean_global.numpy()}", file = log)
-	print(f"smax_sd_global: {model.priorgene.smax_sd_global.numpy()}", file = log)
-	log.close()
+	#log = open(f"{log_dir}/par.log", "w")
+	#print(f"smax_mean_global: {model.priorgene.smax_mean_global.numpy()}", file = log)
+	#print(f"smax_sd_global: {model.priorgene.smax_sd_global.numpy()}", file = log)
+	#log.close()
 	model.gene.smax_mean_gene.assign(tf.ones((model.ngene, 1)) * model.priorgene.smax_mean_global)
-	model.gene.smax_sd_gene.assign(tf.ones((model.ngene, 1)) * model.priorgene.smax_sd_global)
 	model.save_weights(f"{log_dir}/ckpt/checkpoint_0")
 	train(model, data, epochs = 50, init_lr = 0.1, lr_warmup_epoch = 0, lr_decay_epoch = 25, prior = False, post = True)
 	model.save_weights(f"{log_dir}/ckpt/checkpoint_1")
 	np.save(f"{log_dir}/smax_mean_gene.npy", model.gene.smax_mean_gene.numpy())
-	np.save(f"{log_dir}/smax_sd_gene.npy", model.gene.smax_sd_gene.numpy())
 
 if __name__=="__main__":
 	main()

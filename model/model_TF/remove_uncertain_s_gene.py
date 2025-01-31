@@ -9,7 +9,7 @@ def main():
 			covered.append(line.strip())
 	geneset = pd.read_table(f"{log_dir}/geneset_mis_s.txt")
 	geneset.loc[~geneset['UniprotID'].isin(covered), 'logit_s_mean'] = pd.NA
-	geneset.loc[~geneset['UniprotID'].isin(covered), 'logit_s_sd'] = pd.NA
+	#geneset.loc[~geneset['UniprotID'].isin(covered), 'logit_s_sd'] = pd.NA
 	geneset.to_csv(f"{log_dir}/geneset_mis_s.txt", index = False, sep = "\t")
 
 

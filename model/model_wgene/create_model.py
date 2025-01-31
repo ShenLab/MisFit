@@ -66,6 +66,7 @@ class Gene(tfkl.Layer):
 		psmax = smax_global_distr.log_prob(smax_mean) # (B, 1)
 		return smax_mean, psmax
 
+
 class Selection(tfkl.Layer):
 	def __init__(self, smin = -13.8, **kwargs):
 		super().__init__(**kwargs)
@@ -74,6 +75,7 @@ class Selection(tfkl.Layer):
 		smax, degree = inputs # (B, 1, 1), (nsample, B, L, A)
 		s = degree * (smax - self.smin) + self.smin # ( nsample, B, L, A) or (B, L, A)
 		return(s)
+
 
 class ProbModel(tfk.Model):
 	def __init__(self, **kwargs):
@@ -85,13 +87,8 @@ class ProbModel(tfk.Model):
 			smin = setting['min_log_s'], 
 			smax_mean_global = setting['smax_mean_global'],
 			smax_sd_global = setting['smax_sd_global'],
-			init_smax_mean = np.load(os.path.expanduser(setting['init_smax_mean'])) 
+			init_smax_mean = np.load(os.path.expanduser(setting['init_smax_mean'])), 
 		)
-		self.degree_dense = tfk.Sequential(name = "degree_normalization")
-		self.degree_dense.add(tfk.Input(shape=(1,)))
-		for dim in setting['degree_transform_unit']:
-			self.degree_dense.add(Dense(dim, kernel_initializer = tfk.initializers.RandomUniform(0., 1.), kernel_constraint = tfk.constraints.NonNeg(), activation = setting["trans_activation"]))
-		self.degree_dense.add(Dense(1, kernel_initializer = tfk.initializers.RandomUniform(0., 1.), kernel_constraint = tfk.constraints.NonNeg()))
 		self.prior_position = PriorPosition(use_cov = setting['use_cov'], aa_base = setting['aa_base_sampling'])
 		self.selection = Selection(smin = setting['min_log_s'])
 		self.popmodel = PopACModel()
@@ -102,39 +99,34 @@ class ProbModel(tfk.Model):
 		self.reg_loss_tracker = tfk.metrics.Mean(name="reg_loss")
 		self.marginal_loss_tracker = tfk.metrics.Mean(name="marginal_loss")
 		self.total_loss_tracker = tfk.metrics.Mean(name="total_loss")
-	def x_to_d(self, inputs, training = None):
-		d_mean = inputs['logits']
-		return d_mean, self.d_sd
 	def call(self, inputs, training = None):
 		belong_mt = tf.one_hot(inputs['id'], depth = self.gene.ngene)
-		d_mean, d_sd = self.x_to_d(inputs, training = training)
-		d_trans = tf.expand_dims(d_mean, -1) 
-		d_trans = self.degree_dense(d_trans) 
-		d_trans = tf.squeeze(d_trans, -1) # (B, L, A)	
+		d_trans = tf.broadcast_to(self.d_mean_marginal, tf.shape(inputs['mu']))
+		d_sd = tf.broadcast_to(self.d_sd_marginal, tf.shape(inputs['mu']))
 		smax_mean = self.gene.call(belong_mt) # (B, 1)
 		smax_mean = tf.expand_dims(smax_mean, -1) # (B, 1, 1)
 		s = self.selection((smax_mean, tf.math.sigmoid(d_trans))) # (B, L, A)
-		return d_trans, s, tf.broadcast_to(d_sd, tf.shape(d_trans)), smax_mean
+		return d_trans, s, d_sd, smax_mean # (B, L, A)
 	def get_loss(self, inputs, training = None, msample = setting['msample'], nsample = setting['nsample'], rsample = setting['rsample']):
 		belong_mt = tf.one_hot(inputs['id'], depth = self.gene.ngene)
-		d_mean, d_sd = self.x_to_d(inputs, training = training)
 		if self.prior_position.use_cov:
 			position_sample = self.prior_position.sample(inputs['contact_decomp'], nsample = nsample) # (n, B, L, 1)
 		else:
+			d_mean = tf.broadcast_to(self.d_mean_marginal, tf.shape(inputs['mu']))
 			position_sample = self.prior_position.sample(d_mean, nsample = nsample) # (n, B, L, 1) or (n, B, L, A)
-		d_trans = tf.expand_dims(d_mean, -1) 
-		d_trans = self.degree_dense(d_trans) 
-		d_trans = tf.squeeze(d_trans, -1) # (n, B, L, A)	
+		d_trans = tf.broadcast_to(self.d_mean_marginal, tf.shape(inputs['mu']))
+		d_sd = tf.broadcast_to(self.d_sd_marginal, tf.shape(inputs['mu']))
 		d = d_trans + d_sd * position_sample # (n, B, L, A)
 		# rescaling d to (0, 1) as variant degree of selection, monotonic to d
 		smax_sample, psmax = self.gene.sample(belong_mt) # (B, 1)
-		smax_sample = tf.expand_dims(tf.expand_dims(smax_sample, -1), 0) # (1, B, 1, 1)
-		s_sample = self.selection((smax_sample, tf.math.sigmoid(d))) # (nsample, B, L, A)
+		smax_sample = tf.expand_dims(tf.expand_dims(smax_sample, -1), 0) # ( 1, B, 1, 1)
+		s_sample = self.selection((smax_sample, tf.math.sigmoid(d))) # ( nsample, B, L, A)
 		# marginal regularization
 		logp_degree = -tfd.Normal(self.d_mean_marginal, self.d_sd_marginal).cross_entropy(tfd.Normal(d_trans, d_sd)) # (B, L, A)
-		logp_degree = tf.reduce_sum(logp_degree * inputs['overlap_weight'])
+		logp_degree = tf.reduce_sum(logp_degree * inputs['overlap_weight'] * (1 - inputs['refseq']))
 		d_marginal = tfd.Normal(self.d_mean_marginal, self.d_sd_marginal).sample((rsample, 1, 1, 1)) # (rsample, 1, 1, 1)
 		logp_marginal = tfd.Normal(d_trans, d_sd).log_prob(d_marginal) # (rsample, B, L, A)
+#		logp_marginal = tfp.math.clip_by_value_preserve_gradient(logp_marginal, -10., 0.,)
 		w = tf.clip_by_value(inputs['overlap_weight'] * (1 - inputs['refseq']), 1e-9, 1.)
 		logp_marginal = tf.math.reduce_logsumexp(logp_marginal + tf.math.log(w), axis = [-1, -2]) - tf.math.log(tf.reduce_sum(w, axis = [-1, -2])) # (rsample, B)
 		logp_marginal = tf.reduce_sum(tf.math.reduce_mean(logp_marginal, axis = 0))
@@ -144,14 +136,8 @@ class ProbModel(tfk.Model):
 		else:
 			logp_ac_sample = self.popmodel((tf.math.log(inputs['mu']), s_sample, inputs['AN'], inputs['AC'])) * inputs['AA_mask']
 		logp_ac = tfp.math.reduce_logmeanexp(logp_ac_sample, 0) # ( B, L, A)
-		logp_ac = tf.reduce_sum(logp_ac, axis = [-1, -2]) # (B)
-#		logp_ac = tfp.math.reduce_logmeanexp(logp_ac, 0) # (B)
+		logp_ac = tf.reduce_sum(logp_ac, axis = [-1, -2]) # ( B)
 		logp_ac = tf.reduce_sum(logp_ac)
-#		logp_ac_iw = tfp.math.reduce_logmeanexp(logp_ac_sample, 1) # (msample, B, L, A)
-#		logp_ac_iw = tf.reduce_sum(logp_ac_iw, axis = [-1, -2]) # (msample, B)
-#		logp_ac_iw += tf.squeeze(iw_smax * tf.reduce_sum(inputs['overlap_weight'], axis = -2) / (belong_mt @ self.total_length), -1) # (msample, B)
-#		logp_ac_iw = tfp.math.reduce_logmeanexp(logp_ac_iw, 0) # (B)
-#		logp_ac_iw = tf.reduce_sum(logp_ac_iw)
 		logp_ac_iw = tf.reduce_sum(psmax * tf.reduce_sum(inputs['overlap_weight'], axis = -2) / (belong_mt @ self.total_length)) + logp_ac
 		return logp_ac, logp_ac_iw, logp_degree, logp_marginal
 	def train_step(self, data):
@@ -214,7 +200,6 @@ def train(model, train_list, lr = 1e-3, patience = 3, epochs = 20, checkpoint = 
 	lr_schedule = LRSchedule(lr)
 	stop_callback = tf.keras.callbacks.EarlyStopping(monitor='total_loss', patience = patience)
 	model.gene.trainable = trainable['gene']
-	model.degree_dense.trainable = trainable['degree']
 	print(f"training set: {train_list}; learning_rate: {lr}; ")
 	print(f"trainable layers: {trainable}")
 	print(f"training weight: {setting['training_weight']}")
@@ -233,7 +218,11 @@ def train(model, train_list, lr = 1e-3, patience = 3, epochs = 20, checkpoint = 
 	model.save_weights(f"{log_dir}/ckpt/checkpoint_{checkpoint}")
 	print(f"saved checkpoint: {checkpoint}")
 
-def output(test_list, output_var = True, output_gene = True):
+def get_gene():
+	model = create(f"{log_dir}/ckpt/")
+	np.save(f"{log_dir}/smax_mean_gene.npy", model.gene.smax_mean_gene.numpy())
+
+def output(test_list):
 	model = create(f"{log_dir}/ckpt/")
 	output_d_dir = f"{log_dir}/d_temp/"
 	output_s_dir = f"{log_dir}/s_temp/"
@@ -241,37 +230,20 @@ def output(test_list, output_var = True, output_gene = True):
 		os.makedirs(output_d_dir)
 	if not os.path.exists(output_s_dir):
 		os.makedirs(output_s_dir)
-	gene_dict = {'UniprotID':[], 'weight': [], 'logit_s_mean': []}
 	data = gen_data(test_list, shuffle = False, batch_size = setting['batch_size'] * len(setting['GPU']), repeat = 1)
 	for inputs in iter(data):
-		d, s, _, smax_mean, gene_weight = model.call(inputs)
+		d, s, _, _, _ = model.call(inputs)
 		for index in range(tf.shape(inputs['id'])[0].numpy()):
 			uniprot_id = inputs['uniprot'][index].numpy().decode('utf-8')
-			if output_gene:
-				gene_dict['UniprotID'].append(uniprot_id)
-				gene_dict['weight'].append(gene_weight[index,0,0].numpy())
-				gene_dict['logit_s_mean'].append(smax_mean[index,0,0].numpy())
-			if output_var:
-				frac = inputs['frac'][index].numpy()
-				damage = tf.math.sigmoid(d[index,:,:]) # (L, A)
-				selection = s[index,:,:] # (L, A)
-				weights = inputs['overlap_weight'][index]
-				weighted_d = damage * weights
-				weighted_s = selection * weights
-				l = inputs['l'][index].numpy()
-				np.save(f"{output_d_dir}/{uniprot_id}_{frac}.npy", weighted_d[:l].numpy())
-				np.save(f"{output_s_dir}/{uniprot_id}_{frac}.npy", weighted_s[:l].numpy())
-	if output_gene:
-		df = pd.DataFrame(gene_dict)
-		df.drop_duplicates(subset = ['UniprotID']).to_csv(f"{log_dir}/geneset_mis_s.txt", sep = "\t", index = False)
-
-def get_gene():
-	model = create(f"{log_dir}/ckpt/")
-	geneset = pd.read_table(setting["geneset"], sep = "\t")
-	df = geneset[['UniprotID']]
-	df["logit_s_mean"]= model.gene.smax_mean_gene.numpy()[:,0]
-	df.to_csv(f"{log_dir}/geneset_mis_s.txt", sep = "\t", index = False)
-
+			frac = inputs['frac'][index].numpy()
+			damage = tf.math.sigmoid(d[index,:,:]) # (L, A)
+			selection = s[index,:,:] # (L, A)
+			weights = inputs['overlap_weight'][index]
+			weighted_d = damage * weights
+			weighted_s = selection * weights
+			l = inputs['l'][index].numpy()
+			np.save(f"{output_d_dir}/{uniprot_id}_{frac}.npy", weighted_d[:l].numpy())
+			np.save(f"{output_s_dir}/{uniprot_id}_{frac}.npy", weighted_s[:l].numpy())
 
 def combine(test_list_num, varname = "d", varname_df = "model_damage"):
 	dataset = pd.read_table(os.path.expanduser(f"{setting['data_folder']}/list_{test_list_num}.txt"))

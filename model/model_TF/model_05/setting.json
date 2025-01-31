@@ -1,5 +1,5 @@
 {
-	"GPU": [0, 1, 2, 3],
+	"GPU": [0, 1],
 
 	"data_folder": "~/data/variant/dataset/data_18/",
 	"geneset": "~/data/variant/list/geneset_uniprot_len.txt",
@@ -33,7 +33,7 @@
 	"min_log_s": -9.21,
 	"max_AF": 0.5,
 	"weight_decay": 0.0,
-	"nsample": 1,
+	"nsample": 5,
 	"msample": 1,
 	"rsample": 5,
 	
@@ -60,8 +60,7 @@
 
 	"smax_mean_global": -4.85,
 	"smax_sd_global": 2.88,
-	"init_smax_mean": "~/data/model/model_mis/result/smax_mean_gene.npy",
-	"init_smax_sd": "~/data/model/model_mis/result/smax_sd_gene.npy",
+	"init_smax_mean": "~/data/model/model_continuous_aou_basic_map/model_01/smax_mean_gene.npy",
 	"d_mean_marginal": 0.116,
 	"d_sd_marginal": 2.0,
 	"d_sd_max": 0.25,
@@ -78,7 +77,7 @@
 		"geneweight": true,
 		"basic": false,
 		"damaging": false,
-		"degree": false
+		"degree": true
 	},
 
 	"AA_table": {

@@ -6,8 +6,7 @@
 `train_model.py`
 - step 1: set `train_list` to 2, `nsample` and `msample` to 5
 - step 2: set `train_list` to 1, `nsample` and `msample` to 5
-
-step 3: set `train_list` to 0, `nsample` and `msample` to 1
+- step 3: set `train_list` to 0
 
 ## stage 2
 

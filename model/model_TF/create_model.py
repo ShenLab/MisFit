@@ -49,31 +49,22 @@ class PriorPosition(tfk.Model):
 			return aa_sample
 
 class Gene(tfkl.Layer):
-	def __init__(self, ngene, smin, smax_mean_global, smax_sd_global, init_smax_mean, init_smax_sd, **kwargs):
+	def __init__(self, ngene, smin, smax_mean_global, smax_sd_global, init_smax_mean, **kwargs):
 		super().__init__(**kwargs)
 		self.ngene = ngene
 		self.smin = smin
 		self.smax_mean_global = smax_mean_global
 		self.smax_sd_global = smax_sd_global
 		init_smax_mean = tf.constant(init_smax_mean, shape = (ngene, 1), dtype = tf.float32)
-		init_smax_sd = tf.constant(init_smax_sd, shape = (ngene, 1), dtype = tf.float32)
 		self.smax_mean_gene = tf.Variable(init_smax_mean, name = "smax_mean_gene", dtype = tf.float32, constraint = lambda z: tfp.math.clip_by_value_preserve_gradient(z, 1e-3 + smin, 0.))
-		self.smax_sd_gene = tf.Variable(init_smax_sd, name = "smax_sd_gene", dtype = tf.float32, constraint = lambda z: tfp.math.clip_by_value_preserve_gradient(z, 1e-5, 5.))
 	def call(self, belong_mt): # (B, ngene)
 		smax_mean = belong_mt @ self.smax_mean_gene
-		smax_sd = belong_mt @ self.smax_sd_gene
-		return smax_mean, smax_sd # (B, 1)
-	def sample(self, belong_mt, msample):
-		smax_mean, smax_sd = self.call(belong_mt) # (B, 1)
-		smax_distr = tfd.Normal(smax_mean, smax_sd) # (B, 1)
-		smax_sample = smax_distr.sample(msample) # (msample, B, 1)
-#		qsmax = smax_distr.log_prob(smax_sample) # (msample, B, 1)
+		return smax_mean # (B, 1)
+	def sample(self, belong_mt):
+		smax_mean = self.call(belong_mt) # (B, 1)
 		smax_global_distr = tfd.Normal(self.smax_mean_global, self.smax_sd_global) # ()
-#		psmax = smax_global_distr.log_prob(smax_sample) # (msample, B, 1)
-#		iw_smax = psmax - qsmax
-#		return smax_sample, iw_smax # (msample, B, 1)
-		kl_smax = smax_distr.kl_divergence(smax_global_distr) # (B, 1)
-		return smax_sample, kl_smax
+		psmax = smax_global_distr.log_prob(smax_mean) # (B, 1)
+		return smax_mean, psmax
 
 class GeneWeight(tfkl.Layer):
 	def __init__(self, dims = [], **kwargs):
@@ -94,8 +85,8 @@ class Selection(tfkl.Layer):
 		super().__init__(**kwargs)
 		self.smin = smin
 	def call(self, inputs):
-		smax, degree = inputs # (msample, 1, B, 1, 1), (nsample, B, L, A) or (B, 1, 1), (B, L, A)
-		s = degree * (smax - self.smin) + self.smin # (msample, nsample, B, L, A) or (B, L, A)
+		smax, degree = inputs # (B, 1, 1), (nsample, B, L, A)
+		s = degree * (smax - self.smin) + self.smin # ( nsample, B, L, A) or (B, L, A)
 		return(s)
 
 class ProbModel(tfk.Model):
@@ -131,8 +122,7 @@ class ProbModel(tfk.Model):
 			smin = setting['min_log_s'], 
 			smax_mean_global = setting['smax_mean_global'],
 			smax_sd_global = setting['smax_sd_global'],
-			init_smax_mean = np.load(os.path.expanduser(setting['init_smax_mean'])), 
-			init_smax_sd = np.load(os.path.expanduser(setting['init_smax_sd']))
+			init_smax_mean = np.load(os.path.expanduser(setting['init_smax_mean'])) 
 		)
 		self.degree_dense = tfk.Sequential(name = "degree_normalization")
 		self.degree_dense.add(tfk.Input(shape=(1,)))
@@ -183,14 +173,13 @@ class ProbModel(tfk.Model):
 		d_trans = tf.expand_dims(d_mean, -1) 
 		d_trans = self.degree_dense(d_trans) 
 		d_trans = tf.squeeze(d_trans, -1) # (B, L, A)	
-		smax_mean, smax_sd = self.gene.call(belong_mt) # (B, 1)
+		smax_mean = self.gene.call(belong_mt) # (B, 1)
 		smax_mean = tf.expand_dims(smax_mean, -1) # (B, 1, 1)
-		smax_sd = tf.expand_dims(smax_sd, -1)
 		s = self.selection((smax_mean, tf.math.sigmoid(d_trans))) # (B, L, A)
 		p_trans = tf.expand_dims(-tf.math.sigmoid(d_trans) * gene_weight + self.logbasic, -1)
 		p_trans = self.trans_dense(p_trans)
 		p_trans = tf.squeeze(p_trans, -1)
-		return d_trans, s, tf.broadcast_to(d_sd, tf.shape(d_trans)), smax_mean, smax_sd, gene_weight
+		return d_trans, s, tf.broadcast_to(d_sd, tf.shape(d_trans)), smax_mean, gene_weight
 	def get_loss(self, inputs, training = None, msample = setting['msample'], nsample = setting['nsample'], rsample = setting['rsample']):
 		belong_mt = tf.one_hot(inputs['id'], depth = self.gene.ngene)
 		if self.use_pooling_noise:
@@ -208,9 +197,9 @@ class ProbModel(tfk.Model):
 		d_trans = tf.squeeze(d_trans, -1) # (n, B, L, A)	
 		d = d_trans + d_sd * position_sample # (n, B, L, A)
 		# rescaling d to (0, 1) as variant degree of selection, monotonic to d
-		smax_sample, kl_smax = self.gene.sample(belong_mt, msample = msample) # (msample, B, 1)
-		smax_sample = tf.expand_dims(tf.expand_dims(smax_sample, -1), 1) # (msample, 1, B, 1, 1)
-		s_sample = self.selection((smax_sample, tf.math.sigmoid(d))) # (msample, nsample, B, L, A)
+		smax_sample, psmax = self.gene.sample(belong_mt) # (B, 1)
+		smax_sample = tf.expand_dims(tf.expand_dims(smax_sample, -1), 0) # (1, B, 1, 1)
+		s_sample = self.selection((smax_sample, tf.math.sigmoid(d))) # (nsample, B, L, A)
 		# sequence loss
 		p_trans = tf.expand_dims(-tf.math.sigmoid(d_trans) * gene_weight + self.logbasic, -1)
 		p_trans = self.trans_dense(p_trans)
@@ -232,16 +221,16 @@ class ProbModel(tfk.Model):
 			logp_ac_sample = self.popmodel((tf.math.log(inputs['mu']), s_sample, inputs['AN'], inputs['AC'])) * (1 - inputs['refseq']) * inputs['AA_mask']
 		else:
 			logp_ac_sample = self.popmodel((tf.math.log(inputs['mu']), s_sample, inputs['AN'], inputs['AC'])) * inputs['AA_mask']
-		logp_ac = tfp.math.reduce_logmeanexp(logp_ac_sample, 1) # (msample, B, L, A)
-		logp_ac = tf.reduce_sum(logp_ac, axis = [-1, -2]) # (msample, B)
-		logp_ac = tfp.math.reduce_logmeanexp(logp_ac, 0) # (B)
+		logp_ac = tfp.math.reduce_logmeanexp(logp_ac_sample, 0) # ( B, L, A)
+		logp_ac = tf.reduce_sum(logp_ac, axis = [-1, -2]) # (B)
+#		logp_ac = tfp.math.reduce_logmeanexp(logp_ac, 0) # (B)
 		logp_ac = tf.reduce_sum(logp_ac)
 #		logp_ac_iw = tfp.math.reduce_logmeanexp(logp_ac_sample, 1) # (msample, B, L, A)
 #		logp_ac_iw = tf.reduce_sum(logp_ac_iw, axis = [-1, -2]) # (msample, B)
 #		logp_ac_iw += tf.squeeze(iw_smax * tf.reduce_sum(inputs['overlap_weight'], axis = -2) / (belong_mt @ self.total_length), -1) # (msample, B)
 #		logp_ac_iw = tfp.math.reduce_logmeanexp(logp_ac_iw, 0) # (B)
 #		logp_ac_iw = tf.reduce_sum(logp_ac_iw)
-		logp_ac_iw = -tf.reduce_sum(kl_smax * tf.reduce_sum(inputs['overlap_weight'], axis = -2) / (belong_mt @ self.total_length)) + logp_ac
+		logp_ac_iw = tf.reduce_sum(psmax * tf.reduce_sum(inputs['overlap_weight'], axis = -2) / (belong_mt @ self.total_length)) + logp_ac
 		return logp_seq, logp_ac, logp_ac_iw, logp_degree, logp_marginal
 	def train_step(self, data):
 		inputs = data
@@ -339,17 +328,16 @@ def output(test_list, output_var = True, output_gene = True):
 		os.makedirs(output_d_dir)
 	if not os.path.exists(output_s_dir):
 		os.makedirs(output_s_dir)
-	gene_dict = {'UniprotID':[], 'weight': [], 'logit_s_mean': [], 'logit_s_sd': []}
+	gene_dict = {'UniprotID':[], 'weight': [], 'logit_s_mean': []}
 	data = gen_data(test_list, shuffle = False, batch_size = setting['batch_size'] * len(setting['GPU']), repeat = 1)
 	for inputs in iter(data):
-		d, s, _, smax_mean, smax_sd, gene_weight = model.call(inputs)
+		d, s, _, smax_mean, gene_weight = model.call(inputs)
 		for index in range(tf.shape(inputs['id'])[0].numpy()):
 			uniprot_id = inputs['uniprot'][index].numpy().decode('utf-8')
 			if output_gene:
 				gene_dict['UniprotID'].append(uniprot_id)
 				gene_dict['weight'].append(gene_weight[index,0,0].numpy())
 				gene_dict['logit_s_mean'].append(smax_mean[index,0,0].numpy())
-				gene_dict['logit_s_sd'].append(smax_sd[index,0,0].numpy())
 			if output_var:
 				frac = inputs['frac'][index].numpy()
 				damage = tf.math.sigmoid(d[index,:,:]) # (L, A)
@@ -363,6 +351,14 @@ def output(test_list, output_var = True, output_gene = True):
 	if output_gene:
 		df = pd.DataFrame(gene_dict)
 		df.drop_duplicates(subset = ['UniprotID']).to_csv(f"{log_dir}/geneset_mis_s.txt", sep = "\t", index = False)
+
+def get_gene():
+	model = create(f"{log_dir}/ckpt/")
+	geneset = pd.read_table(setting["geneset"], sep = "\t")
+	df = geneset[['UniprotID']]
+	df["logit_s_mean"]= model.gene.smax_mean_gene.numpy()[:,0]
+	df.to_csv(f"{log_dir}/geneset_mis_s.txt", sep = "\t", index = False)
+
 
 def combine(test_list_num, varname = "d", varname_df = "model_damage"):
 	dataset = pd.read_table(os.path.expanduser(f"{setting['data_folder']}/list_{test_list_num}.txt"))

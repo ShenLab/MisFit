@@ -1,12 +1,12 @@
 {
-	"GPU": [0, 1],
+	"GPU": [2, 3],
 
-	"data_folder": "~/data/variant/dataset/data_18/",
+	"data_folder": "~/data/variant/dataset/data_16/",
 	"geneset": "~/data/variant/list/geneset_uniprot_len.txt",
 	"ngene": 18708,
-	"segment_length": 600,
+	"segment_length": 1000,
 	"overlap_length": 200,
-	"feature": ["logits", "refseq"],
+	"feature": ["refseq"],
 	"ESM": "ESM-2",
 	"ESM_folder": {
 		"ESM-1b": "~/data/variant/ESM-1b/",
@@ -26,54 +26,42 @@
 	"overlap_mask_type": "weighted",
 	"log_basic_mu": "~/data/variant/codon_freq/log_AA_freq.npy",
 	"use_basic_mu": true,
-	"use_pooling_noise": true,
 
 	"mu_scaler": 1.0,
-	"batch_size": 12,
+	"batch_size": 8,
 	"min_log_s": -9.21,
 	"max_AF": 0.5,
 	"weight_decay": 0.0,
 	"nsample": 5,
-	"msample": 1,
+	"msample": 5,
 	"rsample": 5,
 	
-	"TF_nlayer": 1,
-	"TF_numhead": 8,
-	"TF_headdim": 20,
-	"TF_prekdim": null,
-	"TF_prevdim": null,
-	"TF_use_pairwise": false,
-	"embedding_noise": 0.25,
-	"label_smoothing": 0.8,
-	"dropout": 0.2,
 	"gene_dense_unit": [20],
-	"degree_transform_unit": [],
-	"msa_transform_unit": [],
-	"trans_activation": "softplus",
-	"damaging_dense_dim": [200],
+	"degree_transform_unit": [5, 5],
 	"use_cov": false,
-	"aa_base_sampling": false,
-	"cov_weight": 1,
+	"aa_base_sampling": true,
+	"nogene": false,
 
 	"post_mean_layer": [20, 20],
 	"post_sd_layer": [20, 20],
 
 	"smax_mean_global": -4.85,
 	"smax_sd_global": 2.88,
-	"init_smax_mean": "~/data/model/model_continuous_aou_basic_map/model_01/smax_mean_gene.npy",
+	"init_smax_mean": "~/data/model_clean/mis_continuous_aou_2/result/smax_mean_gene.npy",
+	"init_smax_sd": "~/data/model_clean/mis_continuous_aou_2/result/smax_sd_gene.npy",
 	"d_mean_marginal": 0.116,
 	"d_sd_marginal": 2.0,
 	"d_sd_max": 0.25,
 
 	"training_weight": {
 		"ac": 1.0,
-		"reg": 0.0001,
-		"marginal": 100.0
+		"seq": 1.0,
+		"reg": 0.0000,
+		"marginal": 50.0
 	},
 
 	"trainable": {
-		"gene": true,
-		"degree": true
+		"gene": true
 	},
 
 	"AA_table": {

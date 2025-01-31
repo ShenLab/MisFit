@@ -45,11 +45,11 @@ class PostModel(tfk.Model):
 		self.ac_loss_tracker = tfk.metrics.Mean(name="ac_loss")
 		self.total_loss_tracker = tfk.metrics.Mean(name="total_loss")
 	def call(self, inputs):
-		d_mean, _, d_sd, s_mean, _ = self.probmodel.call(inputs)
+		d_mean, _, d_sd, s_mean = self.probmodel.call(inputs)
 		s_post_mean = self.post_selection.get_s(inputs, d_mean, d_sd, s_mean)
 		return tf.math.sigmoid(d_mean), s_post_mean
 	def get_loss(self, inputs):
-		d_mean, _, d_sd, s_mean, _ = self.probmodel.call(inputs)
+		d_mean, _, d_sd, s_mean = self.probmodel.call(inputs)
 		s_post_sample, kl_d = self.post_selection.sample(inputs, d_mean, d_sd, s_mean)
 		logps = self.popmodel((tf.math.log(inputs['mu']), s_post_sample, inputs['AN'], inputs['AC'])) * inputs['AA_mask']
 		return logps, kl_d
