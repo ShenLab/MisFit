@@ -1,4 +1,13 @@
 # MisFit
+
+## A probabilistic graphical model for estimating selection coefficient of nonsynonymous variants from human population sequence data
+
+Zhao et al 2025, https://www.medrxiv.org/content/10.1101/2023.12.11.23299809
+
+## MisFit version 1.5 data:
+ https://doi.org/10.5281/zenodo.15230898 
+
+
 ## predicting nonsynonymous variant selection coefficient 
 
 ### population genetics model
