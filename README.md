@@ -5,10 +5,11 @@
 Zhao et al 2025, https://www.medrxiv.org/content/10.1101/2023.12.11.23299809
 
 ## MisFit version 1.5 data:
- https://doi.org/10.5281/zenodo.15230898 
+ * estimated S_gene for all human protein coding genes
+ * estimated selection coefficient (MisFit S) for all possible missense variants in human genome caused by SNVs
+Download at:  https://doi.org/10.5281/zenodo.15230898 
 
 
-## predicting nonsynonymous variant selection coefficient 
 
 ### population genetics model
 [pop_model](pop_model_2)
