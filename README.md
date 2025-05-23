@@ -2,7 +2,7 @@
 
 ## A probabilistic graphical model for estimating selection coefficient of nonsynonymous variants from human population sequence data
 
-Zhao et al 2025, https://www.medrxiv.org/content/10.1101/2023.12.11.23299809
+Zhao et al 2025, https://www.nature.com/articles/s41467-025-59937-2
 
 ## MisFit version 1.5 data:
  * estimated S_gene for all human protein coding genes
