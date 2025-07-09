@@ -8,6 +8,9 @@ Zhao et al 2025, https://www.nature.com/articles/s41467-025-59937-2
  * estimated S_gene for all human protein coding genes
  * estimated selection coefficient (MisFit S) for all possible missense variants in human genome caused by SNVs
 Download at:  https://doi.org/10.5281/zenodo.15230898 
+ * Note: In the original Misfit v1.5 implementation, 273 transcripts failed to map to canonical Ensembl IDs in the training data. We have now included these transcripts by directly using their non-canonical IDs. The additional scores are available at [here](https://zenodo.org/records/15851098?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImIzNzg4NzdkLTVjMjctNDAxMy1hNDVjLWM5ZjI2NDlkZmFhYiIsImRhdGEiOnt9LCJyYW5kb20iOiIzYjNhZDcxOTFlYmJiODIyOWE3NWI4YjJiYzEyN2UzNCJ9.krDcXXVI-8xW6k_LekKcDlgJ7BZxTihVAz_H4QqK84i1cT7CrLxxAJR7tZEo65i-GrnVIK5FNLQd2OU7UBLr_A)
+ 
+
 
 
 
